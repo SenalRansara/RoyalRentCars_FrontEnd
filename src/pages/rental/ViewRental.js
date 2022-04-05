@@ -47,9 +47,16 @@ const addRental = () =>{
 
         <div className="AllRentalTable">
         <div style={{ textAlign: "right"}}>
-        <button className="btn btn-success" style={{ margin: "10px"}} onClick={() => ('/AddRental')} >
-                Add a Recipe
-            </button>
+        <button class="btn btn-success"
+            style={{ marginBottom: "20px" }}>
+            <a
+            href="/AddRental"
+            style={{ textDecoration: "none", color: "white" ,margin: "10px 10px 10px 10px"}}
+            >
+            {" "}
+            Add a new Rental
+            </a>
+        </button>
         </div>
         <MaterialTable style={{background:"#E3ECFF"}}
         title="All Rental"
