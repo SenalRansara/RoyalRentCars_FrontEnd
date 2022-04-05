@@ -12,7 +12,7 @@ function AppRoutes() {
         <BrowserRouter>
     <Routes>
       <Route path="/" element={<RentalView />} />
-      <Route path="/AllRental" element={<AddRental />} />
+      <Route path="/AddRental" element={<AddRental />} />
       </Routes>
       </BrowserRouter>
     );

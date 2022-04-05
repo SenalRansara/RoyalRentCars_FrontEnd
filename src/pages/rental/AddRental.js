@@ -48,13 +48,13 @@ function AddRental() {
 
     return (
         <div className="page-component-body">
-            <h1>New Rental</h1>
             <div className="container input-main-form-emp">
                 <div className="tab-content-emp" id="myTabContent">
                     <div className="container">
                         <div className="row">
+                        <h3>New Rental</h3>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                <h3 className="text-left mt-4 mb-4">Rental Details</h3>
+                                <h6 className="text-left mt-4 mb-4">Rental Details</h6>
                             </div>
                         </div>
                         <div className="row">
@@ -71,7 +71,7 @@ function AddRental() {
                                         </div>
                                     </div>
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <h3 className="text-left mt-4 mb-4">Vehicle Details</h3>
+                                        <h6 className="text-left mt-4 mb-4">Vehicle Details</h6>
                                     </div>
                                     <div className="row">
                                         <div className="form-group col-md-6 ">
@@ -90,7 +90,7 @@ function AddRental() {
                                     </div>
                                     <hr></hr>
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <h3 className="text-left mt-4 mb-4">Payment Details</h3>
+                                        <h6 className="text-left mt-4 mb-4">Payment Details</h6>
                                     </div>
                                     <div className="row">
                                         <div className="form-group col-md-6 ">
@@ -103,7 +103,7 @@ function AddRental() {
                                         </div>
                                     </div>
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <h3 className="text-left mt-4 mb-4">Customer Details</h3>
+                                        <h6 className="text-left mt-4 mb-4">Customer Details</h6>
                                     </div>
                                     <div className="row">
                                         <div className="form-group col-md-6 ">
