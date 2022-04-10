@@ -59,73 +59,75 @@ function AddRental() {
                         </div>
                         <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="from">From</label>
-                                        </div>
+                            <form form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputFrom4">From</label>
+                                        <input type="from" class="form-control" id="inputFrom4" placeholder="2020-01-01"/>
                                     </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="to">To</label>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputTo4">To</label>
+                                        <input type="to" class="form-control" id="inputTo4" placeholder="2020-01-15"/>
                                     </div>
-                                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <h6 className="text-left mt-4 mb-4">Vehicle Details</h6>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputVehicleType">Vehicle Type</label>
+                                        <select id="inputVehicleType" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>Car</option>
+                                            <option>Bus</option>
+                                            <option>Van</option>
+                                        </select>
                                     </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="vehicleType">Vehicle Type</label>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputVehicleModel">Vehicle Model</label>
+                                        <select id="inputVehicleModel" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>Toyota</option>
+                                            <option>Honda</option>
+                                            <option>Mitsubishi</option>
+                                            <option>Rosa</option>
+                                        </select>
                                     </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="vehicleModel">Vehicle Model</label>
-                                        </div>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="inputAddress">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Kandy Road,Kaduwela"/>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPaymentAmount4">Payment Amount</label>
+                                        <input type="paymentAmount" class="form-control" id="inputPaymentAmount4" placeholder="10000"/>
                                     </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Address</label>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPaymentMethod">Payment Method</label>
+                                        <select id="inputPaymentMethod" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>Cash payment</option>
+                                            <option>Card payment</option>
+                                        </select>
                                     </div>
-                                    <hr></hr>
-                                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <h6 className="text-left mt-4 mb-4">Payment Details</h6>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="inputFullName">Full Name</label>
+                                    <input type="text" class="form-control" id="inputFullName" placeholder="Ex:-John Snow"/>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="inputAddress">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Pittugala,Malabe"/>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputTelephoneNumber4">Telephone Number</label>
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" placeholder="0771212112"/>
                                     </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Payment Amount</label>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputIdentityNumber4">Identity Number</label>
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="7355481176V"/>
                                     </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Payment Method</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                        <h6 className="text-left mt-4 mb-4">Customer Details</h6>
-                                    </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Full Name</label>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Address</label>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Telephone</label>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="form-group col-md-6 ">
-                                            <label className="form-label" for="address">Identity No</label>
-                                        </div>
-                                    </div>
-                                    <div className="row mb-4">
+                                </div>
+                                <div className="row mb-4">
                                         <div className="col py-3 text-center">
                                             <button type="submit" className="btn btn-ok">
                                                 Save
@@ -137,7 +139,7 @@ function AddRental() {
                                             </button>
                                         </div>
                                     </div>
-                                </form>
+</form>
                             </div>
                         </div>
                     </div>
