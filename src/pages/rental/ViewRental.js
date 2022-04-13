@@ -46,11 +46,11 @@ useEffect(() => {
 
         <div className="AllRentalTable">
         <div style={{ textAlign: "right"}}>
-        <button class="btn btn-success"
-            style={{ marginBottom: "20px" }}>
+        <button className="btn btn-success"
+            style={{ marginTop:"50px", marginBottom: "10px" }}>
             <a
             href="/AddRental"
-            style={{ textDecoration: "none", color: "white" ,margin: "10px 10px 10px 10px"}}
+            style={{ textDecoration: "none", color: "white"}}
             >
             {" "}
             Add a new Rental
@@ -82,7 +82,6 @@ useEffect(() => {
             { title: "From", field: "from", type: "string" },
             { title: "To", field: "to", type: "string" },
             { title: "Total Amount", field: "paymentAmount", type: "string" },
-            { title: "Status", field: "recDes", type: "string" },
 
 
         ]}

@@ -137,12 +137,12 @@ function AddRental() {
                                 </div>
                                 <div className="row mb-4">
                                         <div className="col py-3 text-center">
-                                            <button type="submit" className="btn btn-ok">
+                                            <button type="submit" className="btn btn-ok btn-success">
                                                 Save
                                             </button>
                                         </div>
                                         <div className="col py-3 text-center">
-                                            <button type="reset" className="btn btn-reset">
+                                            <button type="reset" className="btn btn-reset btn-warning">
                                                 Reset
                                             </button>
                                         </div>
