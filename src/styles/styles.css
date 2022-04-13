@@ -1,0 +1,35 @@
+/*footer*/
+.footer-basic {
+    position: relative;
+    padding: 20px 0;
+    background-color: #3b3b3b;
+    width: 1520px;
+    bottom: 0;
+    top: 2rem;
+    height: 8rem;
+}
+
+.footer-basic .copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+.footer-basic .row .col .desc {
+    margin-top: 15px;
+    margin-right: 6rem;
+    right: 0;
+    font-size: 13px;
+    text-align: right;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+.footer-basic .row .col .footerLogo {
+    margin-left: 4rem;
+    right: 0;
+    font-size: 13px;
+    color: #aaa;
+}
+
