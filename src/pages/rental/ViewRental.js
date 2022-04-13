@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import {Link} from "react-router-dom";
 import { getAllRental } from "../../services/RentalService";
 
 //import AddRental from "../modals/addRentalModal";
@@ -15,7 +14,7 @@ export default function RentalView() {
 const [rental, setRental] = useState([]);
 const [addRentalModal, setRentalModal] = useState(false);
 const [updateRentalModal, setUpdateRentalModal] = useState(false);
-const [updateData, setUpdateData] = useState();
+//const [updateData, setUpdateData] = useState();
 
 
 
@@ -32,10 +31,10 @@ useEffect(() => {
 }, []);
 
 
-//creating function for add a Rental
-const addRental = () =>{
-    setRentalModal(true);
-}
+// //creating function for add a Rental
+// const addRental = () =>{
+//     setRentalModal(true);
+// }
 
 
   //adding components to the page body
@@ -67,7 +66,7 @@ const addRental = () =>{
             ),
             onClick: (event, rowData) => {
                 setUpdateRentalModal(true);
-                setUpdateData(rowData);
+                // setUpdateData(rowData);
             },
             },
             {

@@ -1,20 +1,18 @@
-
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import RentalView from "../pages/rental/ViewRental";
 import AddRental from "../pages/rental/AddRental";
+import Footer from "../components/Footer";
 
 function AppRoutes() {
     return (
-        <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<RentalView />} />
-      <Route path="/AddRental" element={<AddRental />} />
-      </Routes>
-      </BrowserRouter>
+      <Router>
+      <Switch>
+        <Route path="/" exact component={RentalView} />
+        <Route path="/AddRental" exact component={AddRental} />
+      </Switch>
+      <Footer/>
+      </Router>
+
     );
 }
 
