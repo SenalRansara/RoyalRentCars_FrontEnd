@@ -1,0 +1,79 @@
+/*Header*/
+.header-basic {
+    position: relative;
+    padding: 20px 0;
+    background-color: #3b3b3b;
+    width: 1520px;
+    bottom: 10px;
+    height: 12rem;
+}
+
+.header-basic .header-col{
+margin-top: 5px;
+margin-bottom: 10px;
+}
+
+.logout {
+    text-align: right;
+    font-size: 25px;
+    color: #aaa;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #3f3e3e;
+    overflow: hidden;
+}
+
+  /* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+  /* Change the color of links on hover */
+.topnav a:hover {
+    position: relative;
+    background-color: #CD9007;
+    color: black;
+}
+
+/*footer*/
+.footer-basic {
+    position: relative;
+    padding: 20px 0;
+    background-color: #3b3b3b;
+    width: 1520px;
+    bottom: 0;
+    top: 2rem;
+    height: 8rem;
+}
+
+.footer-basic .copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+.footer-basic .row .col .desc {
+    margin-top: 15px;
+    margin-right: 6rem;
+    right: 0;
+    font-size: 13px;
+    text-align: right;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+.footer-basic .row .col .footerLogo {
+    margin-left: 4rem;
+    right: 0;
+    font-size: 18px;
+    color: #aaa;
+}
+

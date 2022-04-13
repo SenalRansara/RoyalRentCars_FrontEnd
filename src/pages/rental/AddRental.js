@@ -17,7 +17,7 @@ function AddRental() {
     const [customerAddress , setCustomerAddress ] = useState("");
     const [customerNIC , setCustomerNIC ] = useState("");
     const [contactNo , setContactNo ] = useState("");
-    const [createdAt , setCreatedAt ] = useState("");
+    //const [createdAt , setCreatedAt ] = useState("");
 
     function sendData(e){
         e.preventDefault()
@@ -63,17 +63,19 @@ function AddRental() {
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputFrom4">From</label>
-                                        <input type="from" class="form-control" id="inputFrom4" placeholder="2020-01-01"/>
+                                        <input type="from" class="form-control" id="inputFrom4" placeholder="2020-01-01"
+                                        onChange={(e) => {setFrom(e.target.value)}}/>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputTo4">To</label>
-                                        <input type="to" class="form-control" id="inputTo4" placeholder="2020-01-15"/>
+                                        <input type="to" class="form-control" id="inputTo4" placeholder="2020-01-15"
+                                        onChange={(e) => {setTo(e.target.value)}}/>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputVehicleType">Vehicle Type</label>
-                                        <select id="inputVehicleType" class="form-control">
+                                        <select id="inputVehicleType" class="form-control" onChange={(e) => {setVehicleType(e.target.value)}}>
                                             <option selected>Choose...</option>
                                             <option>Car</option>
                                             <option>Bus</option>
@@ -82,7 +84,7 @@ function AddRental() {
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputVehicleModel">Vehicle Model</label>
-                                        <select id="inputVehicleModel" class="form-control">
+                                        <select id="inputVehicleModel" class="form-control" onChange={(e) => {setVehicleModel(e.target.value)}}>
                                             <option selected>Choose...</option>
                                             <option>Toyota</option>
                                             <option>Honda</option>
@@ -93,16 +95,18 @@ function AddRental() {
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Kandy Road,Kaduwela"/>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Kandy Road,Kaduwela"
+                                    onChange={(e) => {setPickAddress(e.target.value)}}/>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputPaymentAmount4">Payment Amount</label>
-                                        <input type="paymentAmount" class="form-control" id="inputPaymentAmount4" placeholder="10000"/>
+                                        <input type="paymentAmount" class="form-control" id="inputPaymentAmount4" placeholder="10000"
+                                        onChange={(e) => {setPaymentAmount(e.target.value)}}/>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputPaymentMethod">Payment Method</label>
-                                        <select id="inputPaymentMethod" class="form-control">
+                                        <select id="inputPaymentMethod" class="form-control" onChange={(e) => {setPaymentMethod(e.target.value)}}>
                                             <option selected>Choose...</option>
                                             <option>Cash payment</option>
                                             <option>Card payment</option>
@@ -111,30 +115,34 @@ function AddRental() {
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="inputFullName">Full Name</label>
-                                    <input type="text" class="form-control" id="inputFullName" placeholder="Ex:-John Snow"/>
+                                    <input type="text" class="form-control" id="inputFullName" placeholder="Ex:-John Snow"
+                                    onChange={(e) => {setCustomerName(e.target.value)}}/>
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Pittugala,Malabe"/>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Pittugala,Malabe"
+                                    onChange={(e) => {setCustomerAddress(e.target.value)}}/>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" placeholder="0771212112"/>
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" placeholder="0771212112"
+                                        onChange={(e) => {setContactNo(e.target.value)}}/>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputIdentityNumber4">Identity Number</label>
-                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="7355481176V"/>
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="7355481176V"
+                                        onChange={(e) => {setCustomerNIC(e.target.value)}}/>
                                     </div>
                                 </div>
                                 <div className="row mb-4">
                                         <div className="col py-3 text-center">
-                                            <button type="submit" className="btn btn-ok">
+                                            <button type="submit" className="btn btn-ok btn-success">
                                                 Save
                                             </button>
                                         </div>
                                         <div className="col py-3 text-center">
-                                            <button type="reset" className="btn btn-reset">
+                                            <button type="reset" className="btn btn-reset btn-warning">
                                                 Reset
                                             </button>
                                         </div>
