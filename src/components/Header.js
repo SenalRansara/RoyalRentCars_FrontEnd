@@ -16,7 +16,7 @@ function Header() {
             </header>
             <div class="topnav">
                 <a class="active" href="#">Home</a>
-                <a href="#">Rentals</a>
+                <a href="/AllRental">Rentals</a>
                 <a href="#">Events</a>
                 <a href="#">Vehicles</a>
                 <a href="#">Human Resource</a>
