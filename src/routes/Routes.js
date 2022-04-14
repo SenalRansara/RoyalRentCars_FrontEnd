@@ -10,7 +10,7 @@ function AppRoutes() {
       <Router>
         <Header/>
       <Switch>
-        <Route path="/" exact component={RentalView} />
+        <Route path="/AllRental" exact component={RentalView} />
         <Route path="/AddRental" exact component={AddRental} />
       </Switch>
         <Footer/>
