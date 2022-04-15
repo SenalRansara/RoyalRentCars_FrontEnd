@@ -5,26 +5,26 @@ const HOST = "http://localhost:8000/api";
 
 //calling the backend of API Methods as services
 
-// export const createReservation = async (Payload) => {
-//     try {
-//     await axios.post(`${HOST}/addReservation`, Payload);
-//     return {
-//         ok: true,
-//     };
-//     } catch (error) {
-//     return {
-//         ok: false, err: error.response.data.status
-//     };
-//     }
-// };
+export const createReservation = async (Payload) => {
+    try {
+    await axios.post(`${HOST}/addReservation`, Payload);
+    return {
+        ok: true,
+    };
+    } catch (error) {
+    return {
+        ok: false, err: error.response.data.status
+    };
+    }
+};
 //calling read operation
 export const getAllReservation = async () => {
     try {
     const response = await axios.get(`${HOST}/displayReservation`);
-    console.log("done",response);
+    console.log("Done",response);
     return {
         ok: true,
-        data: response.data.data
+        data: response.data
     };
     } catch (error) {
     return {
