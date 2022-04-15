@@ -31,20 +31,20 @@ export const addEmployeeService = async (employeePayload) => {
 //   }
 // };
 
-// //for retrive the all employee records
-// export const getAllEmployeesService = async () => {
-//   try {
-//     const response = await axios.get(`${HOST}/api/employee`);
-//     return {
-//       ok: true,
-//       data: response.data.data,
-//     };
-//   } catch (error) {
-//     return {
-//       ok: false,
-//     };
-//   }
-// };
+//for retrive the all employee records
+export const getAllEmployeesService = async () => {
+  try {
+    const response = await axios.get(`${HOST}/api/employee`);
+    return {
+      ok: true,
+      data: response.data.data,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+    };
+  }
+};
 
 // //for delete an employee and add him/her to past employee collection
 // export const deleteEmployeeService = async (data, reason) => {
@@ -94,20 +94,20 @@ export const addEmployeeService = async (employeePayload) => {
 //   }
 // };
 
-// //for search on resigned employees
-// export const searchEmployeesService = async (input) => {
-//   try {
-//     const response = await axios.get(`${HOST}/api/searchEmployees/${input}`);
-//     return {
-//       ok: true,
-//       data: response.data.data,
-//     };
-//   } catch (error) {
-//     return {
-//       ok: false,
-//     };
-//   }
-// };
+//for search on resigned employees
+export const searchEmployeesService = async (input) => {
+  try {
+    const response = await axios.get(`${HOST}/api/searchEmployees/${input}`);
+    return {
+      ok: true,
+      data: response.data.data,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+    };
+  }
+};
 
 // //for search on resigned employees
 // export const searchPastEmployeesService = async (input) => {
