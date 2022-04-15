@@ -78,10 +78,12 @@ useEffect(() => {
                 },
         ]}
         columns={[
+            { title: "ID", field: "reservationID", type: "string" },
             { title: "Customer", field: "customerName", type: "string" },
             { title: "Telephone", field: "contactNumber", type: "numeric" },
             { title: "Event Type", field: "eventType", type: "string"},
             { title: "Vehicle Type", field: "vehicleType", type: "string" },
+            { title: "Vehicle Count", field: "numberOfVehivles", type: "numeric" },
             { title: "From", field: "from", type: "date" },
             { title: "To", field: "to", type: "date" },
             
