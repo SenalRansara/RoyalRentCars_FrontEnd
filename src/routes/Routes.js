@@ -14,6 +14,9 @@ import ReservationView from "../pages/reservation/ViewReservation";
 
 // Kaveen
 
+import AddVehicle from "../pages/vehicle/AddVehicle";
+import VehicleView from "../pages/vehicle/ViewVehicle";
+
 function AppRoutes() {
     return (
       <Router>
@@ -34,7 +37,8 @@ function AppRoutes() {
 
         {/* Kaveen */}
       
-  
+        <Route path="/AllVehicle" exact component={VehicleView} />
+        <Route path="/AddVehicle" exact component={AddVehicle} />
       
       </Switch>
         <Footer/>
