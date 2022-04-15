@@ -5,9 +5,9 @@ const HOST = "http://localhost:8000/api";
 
 //calling the backend of API Methods as services
 
-export const createReservation = async (Payload) => {
+export const createVehicle = async (Payload) => {
     try {
-    await axios.post(`${HOST}/addReservation`, Payload);
+    await axios.post(`${HOST}/vehicle/save`, Payload);
     return {
         ok: true,
     };
@@ -18,13 +18,13 @@ export const createReservation = async (Payload) => {
     }
 };
 //calling read operation
-export const getAllReservation = async () => {
+export const getAllVehicle = async () => {
     try {
-    const response = await axios.get(`${HOST}/displayReservation`);
-    console.log("Done",response);
+    const response = await axios.get(`${HOST}/get`);
+    //console.log("awaaa",response);
     return {
         ok: true,
-        data: response.data
+        data: response.data.data
     };
     } catch (error) {
     return {
