@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import {Link} from "react-router-dom";
 import { getAllReservation } from "../../services/ReservationService";
 
 //import AddReservation from "../modals/addReservationModal";
@@ -15,14 +14,15 @@ export default function ReservationView() {
 const [reservation, setReservation] = useState([]);
 const [addReservationModal, setReservationModal] = useState(false);
 const [updateReservationModal, setUpdateReservationModal] = useState(false);
-const [updateData, setUpdateData] = useState();
+//const [updateData, setUpdateData] = useState();
 
 
 
-  // method for display data
+ // method for display data
 useEffect(() => {
     getAllReservation().then((res)=>{
         if(res.ok){
+            console.log("res data",res.data);
             setReservation(res.data);
         }
         else{
@@ -32,10 +32,10 @@ useEffect(() => {
 }, []);
 
 
-//creating function for add a Reservation
-const addReservation = () =>{
-    setReservationModal(true);
-}
+// //creating function for add a Reservation
+// const addReservation = () =>{
+//     setReservationModal(true);
+// }
 
 
   //adding components to the page body
@@ -47,11 +47,11 @@ const addReservation = () =>{
 
         <div className="AllReservationTable">
         <div style={{ textAlign: "right"}}>
-        <button class="btn btn-success"
-            style={{ marginBottom: "20px" }}>
+        <button className="btn btn-success"
+            style={{ marginTop:"50px", marginBottom: "10px" }}>
             <a
             href="/AddReservation"
-            style={{ textDecoration: "none", color: "white" ,margin: "10px 10px 10px 10px"}}
+            style={{ textDecoration: "none", color: "white"}}
             >
             {" "}
             Add a new Reservation
@@ -67,7 +67,7 @@ const addReservation = () =>{
             ),
             onClick: (event, rowData) => {
                 setUpdateReservationModal(true);
-                setUpdateData(rowData);
+                // setUpdateData(rowData);
             },
             },
             {
