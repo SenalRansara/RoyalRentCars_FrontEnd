@@ -6,6 +6,8 @@ import RentalView from "../pages/rental/ViewRental";
 import AddRental from "../pages/rental/AddRental";
 
 // Chamoth
+import ViewEmployee from "../pages/employee/ViewEmployee";
+import AddEmployee from "../pages/employee/AddEmployee";
 
 
 //Ravindu
@@ -27,7 +29,8 @@ function AppRoutes() {
         <Route path="/AddRental" exact component={AddRental} />
 
         {/* Chamoth */}
-
+        <Route path="/AllEmployee" exact component={ViewEmployee} />
+        <Route path="/AddEmployee" exact component={AddEmployee} />
 
 
         {/* Ravindu */}
