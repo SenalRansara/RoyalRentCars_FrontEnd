@@ -12,6 +12,7 @@ const [updateEmpModal, setUpdateEmpModal] = useState(false);
 //creting a method for retrieve data
 useEffect(() => {
     getAllEmployeesService().then((res)=>{
+        console.log("response", res);
         if(res.ok){
             setEmp(res.data);
         }
