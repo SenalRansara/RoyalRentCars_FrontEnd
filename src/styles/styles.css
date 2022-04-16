@@ -150,7 +150,7 @@ color: #1fc191;
 
 .error {
 
-color: #980000;
+color: red;
 
 }
 
@@ -160,7 +160,7 @@ color: #980000;
 
     background-color: #1fc191;
     color: white;
-    width: 200px;
+    width: 160px;
     font-size: 1.1rem;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
@@ -171,7 +171,7 @@ color: #980000;
 
     background-color: #ffd200;
     color: whte;
-    width: 200px;
+    width: 160px;
     font-size: 1.1rem;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
