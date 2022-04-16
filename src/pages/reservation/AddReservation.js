@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 
-//import moment from 'moment';
 
 import { createReservation } from "../../services/ReservationService";
 
@@ -25,7 +24,7 @@ function AddReservation() {
     
     
     
-    //const [createdAt , setCreatedAt ] = useState("");
+    
 
     function sendData(e){
         e.preventDefault()
