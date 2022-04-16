@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 //Senal
 import RentalView from "../pages/rental/ViewRental";
 import AddRental from "../pages/rental/AddRental";
+import Dashboard from "../pages/Dashboard";
 
 // Chamoth
 import ViewEmployee from "../pages/employee/ViewEmployee";
@@ -26,8 +27,10 @@ function AppRoutes() {
         <Header/>
       <Switch>
         {/* Senal */}
+        <Route path="/" exact component={Dashboard} />
         <Route path="/AllRental" exact component={RentalView} />
         <Route path="/AddRental" exact component={AddRental} />
+
 
         {/* Chamoth */}
         <Route path="/AllEmployee" exact component={ViewEmployee} />
