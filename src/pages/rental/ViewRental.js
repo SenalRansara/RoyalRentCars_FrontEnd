@@ -31,12 +31,6 @@ useEffect(() => {
 }, []);
 
 
-// //creating function for add a Rental
-// const addRental = () =>{
-//     setRentalModal(true);
-// }
-
-
   //adding components to the page body
     return (
     /* side navigtaion bar components*/
