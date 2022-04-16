@@ -61,14 +61,13 @@ useEffect(() => {
                     },
             ]}
             columns={[
-                { title: "Name", field: "employeeName", type: "string" },
+                { title: "Name", field: "employeeName", render: (emp) => emp.fName + " " + emp.lName, type: "string" },
                 { title: "NIC", field: "nic", type: "string" },
                 { title: "Email", field: "email", type: "string" },
                 { title: "Designation", field: "designation", type: "string" },
                 { title: "DOB", field: "dob", type: "string" },
                 { title: "Gender", field: "gender", type: "string" },
                 { title: "MobileNo", field: "mobileNo", type: "string" },
-    
     
             ]}
             data={emp}

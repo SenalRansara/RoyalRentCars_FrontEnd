@@ -31,12 +31,6 @@ useEffect(() => {
 }, []);
 
 
-// //creating function for add a Rental
-// const addRental = () =>{
-//     setRentalModal(true);
-// }
-
-
   //adding components to the page body
     return (
     /* side navigtaion bar components*/
@@ -78,7 +72,7 @@ useEffect(() => {
         ]}
         columns={[
             { title: "Customer", field: "customerName", type: "string" },
-            { title: "Vehicle", field: "vehicleType", type: "string" },
+            { title: "Vehicle Type", field: "vehicleType", type: "string" },
             { title: "From", field: "from", type: "string" },
             { title: "To", field: "to", type: "string" },
             { title: "Total Amount", field: "paymentAmount", type: "string" },
