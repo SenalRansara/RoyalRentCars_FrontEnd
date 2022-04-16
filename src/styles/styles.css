@@ -22,6 +22,8 @@ margin-bottom: 10px;
 .topnav {
     background-color: #3f3e3e;
     overflow: hidden;
+    width: auto;
+    padding: 0 -2 0 -2;
 }
 
   /* Style the links inside the navigation bar */
@@ -82,6 +84,17 @@ margin-bottom: 10px;
     background-size: 1500px 1000px;
     margin-top: 0;
 }  */
+
+/* .background-image{
+    background-image: url('C:\Users\KAVEEN\Documents\ITPM\fontend\RoyalRentCars_FrontEnd\src\assets\Vehicle-Dealer-Tips0.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    
+} */
 
 .page-component-body{ 
     min-height: 700px;

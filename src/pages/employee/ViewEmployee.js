@@ -46,7 +46,7 @@ useEffect(() => {
             actions={[
                 {
                 icon: () => (
-                    <button className="btn btn-sm btn-warning">Edit</button>
+                    <button className="btn btn-sm btn-warning">Update</button>
                 ),
                 onClick: (event, rowData) => {
                     setUpdateEmpModal(true);
@@ -65,7 +65,7 @@ useEffect(() => {
                 { title: "NIC", field: "nic", type: "string" },
                 { title: "Email", field: "email", type: "string" },
                 { title: "Designation", field: "designation", type: "string" },
-                { title: "DOB", field: "dob", type: "string" },
+                { title: "DOB", field: "DOB", type: "date"},
                 { title: "Gender", field: "gender", type: "string" },
                 { title: "MobileNo", field: "mobileNo", type: "string" },
     
