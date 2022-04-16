@@ -280,6 +280,7 @@ function AddEmployee() {
                                     <div className="row">
                                         <div className="form-group col-md-6">
                                             <label className="form-label-emp mb-3" for="gender">Gender:</label>
+                                            <br></br>
                                             <div className="form-check form-check-inline ml-2 mr-5">
                                                 <label className="form-check-label" for="inlineCheckbox1">
                                                     <input className="form-check-input" type="radio" id="gender" name="gender"
@@ -328,7 +329,8 @@ function AddEmployee() {
                                             </div>
                                         </div>
                                         <div className="form-group col-md-6 mt-2">
-                                            <label className="form-label-emp pb-3" for="maritalStatus">Marital Status:</label>
+                                            <label className="form-label-emp pb-2" for="maritalStatus">Marital Status:</label>
+                                            <br></br>
                                             <div className="form-check form-check-inline ml-2 mr-5">
                                                 <label className="form-check-label" for="inlineCheckbox1">
                                                     <input className="form-check-input" type="radio" id="married" name="maritalStat"
@@ -337,7 +339,7 @@ function AddEmployee() {
                                                         }}
                                                         value="Married" />Married</label>
                                             </div>
-                                            <div className="form-check form-check-inline ml-5">
+                                            <div className="form-check form-check-inline ml-1">
                                                 <label className="form-check-label" for="inlineCheckbox2">
                                                     <input className="form-check-input" type="radio" id="unmarried" name="maritalStat"
                                                         onChange={(e) => {
@@ -379,11 +381,11 @@ function AddEmployee() {
                                                     setDesignation(e.target.value);
                                                 }}
                                             >
-                                                <option id="rental sales agent">Manager</option>
-                                                <option id="rental sales agent">Assistant Manager</option>
-                                                <option id="rental sales agent">Accountant</option>
+                                                <option id="manager">Manager</option>
+                                                <option id="assistant manager">Assistant Manager</option>
+                                                <option id="accountant">Accountant</option>
                                                 <option id="driver">Driver</option>
-                                                <option id="service agent">Sales Officer</option>
+                                                <option id="sales officer">Sales Officer</option>
                                                 <option id="automotive technician">Automotive Technician</option>
                                             </select>
                                         </div>

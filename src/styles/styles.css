@@ -140,3 +140,54 @@ margin-bottom: 10px;
     color: red;
 
 }
+/* validation styles */
+.success {
+
+  color: #1fc191;
+
+}
+
+.error {
+
+  color: #980000;
+
+}
+
+/*css for buttons*/
+
+.btn-ok {
+
+    background-color: #1fc191;
+  
+    color: white;
+  
+    width: 200px;
+  
+    font-size: 1.1rem;
+  
+    border-radius: 0.5rem;
+  
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+  
+      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+  
+  }
+
+.btn-reset {
+
+    background-color: #ffd200;
+  
+    color: whte;
+  
+    width: 200px;
+  
+    font-size: 1.1rem;
+  
+    border-radius: 0.5rem;
+  
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+  
+      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+  
+  }
+
