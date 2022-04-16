@@ -75,7 +75,7 @@ useEffect(() => {
             { title: "Vehicle Type", field: "vehicleType", type: "string" },
             { title: "From", field: "from", type: "string" },
             { title: "To", field: "to", type: "string" },
-            { title: "Total Amount", field: "paymentAmount", type: "string" },
+            { title: "Total Amount(LKR)", field: "paymentAmount", type: "string" },
 
 
         ]}
