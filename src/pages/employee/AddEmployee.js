@@ -5,7 +5,6 @@ import DatePicker from 'react-datetime';
 import moment from 'moment';
 import 'react-datetime/css/react-datetime.css';
 
-// import Header from "../../Header";
 
 import { addEmployeeService } from "../../services/EmployeeService";
 
@@ -239,7 +238,6 @@ function AddEmployee() {
     return (
 
         <div className="page-component-body">
-            {/* <Header></Header> */}
             <div className="container input-main-form-emp">
                 <div className="tab-content-emp" id="myTabContent">
                     <div className="container">
@@ -300,7 +298,7 @@ function AddEmployee() {
 
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label-emp" for="dob">Date of Birth:</label>
+                                            <label className="form-label-emp" for="dob">Date of Birth:</label>          
                                             <DatePicker
                                                 required
                                                 id="dob"
@@ -381,9 +379,11 @@ function AddEmployee() {
                                                     setDesignation(e.target.value);
                                                 }}
                                             >
-                                                <option id="rental sales agent">Rental Sales Agent</option>
+                                                <option id="rental sales agent">Manager</option>
+                                                <option id="rental sales agent">Assistant Manager</option>
+                                                <option id="rental sales agent">Accountant</option>
                                                 <option id="driver">Driver</option>
-                                                <option id="service agent">Service Agent</option>
+                                                <option id="service agent">Sales Officer</option>
                                                 <option id="automotive technician">Automotive Technician</option>
                                             </select>
                                         </div>
