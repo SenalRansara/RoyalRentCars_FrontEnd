@@ -94,6 +94,12 @@ function AddReservation() {
                                     <input type="text" class="form-control" id="inputAddress" placeholder="No 35A, Temple Road, Maharagama"
                                     onChange={(e) => {setAddress(e.target.value)}}/>
                                 </div>
+
+                                <div class="form-group-input-long">
+                                    <label for="inputEmailAddress">Email</label>
+                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com"
+                                    onChange={(e) => {setEmail(e.target.value)}}/>
+                                </div>
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
