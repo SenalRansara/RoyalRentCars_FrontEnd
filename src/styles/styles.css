@@ -1,11 +1,10 @@
 /*Header*/
 .header-basic {
     position: relative;
-    padding: 20px 0;
     background-color: #3b3b3b;
     width: 100%;
     bottom: 10px;
-    /*height: 12rem;*/
+    height: 12rem;
 }
 
 .header-basic .header-col{
