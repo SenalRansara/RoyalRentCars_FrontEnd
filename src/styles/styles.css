@@ -140,16 +140,17 @@ margin-bottom: 10px;
     color: red;
 
 }
+
 /* validation styles */
 .success {
 
-  color: #1fc191;
+color: #1fc191;
 
 }
 
 .error {
 
-  color: red;
+color: #980000;
 
 }
 
@@ -158,36 +159,46 @@ margin-bottom: 10px;
 .btn-ok {
 
     background-color: #1fc191;
-  
     color: white;
-  
-    width: 160px;
-  
+    width: 200px;
     font-size: 1.1rem;
-  
     border-radius: 0.5rem;
-  
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-  
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  
-  }
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
 
 .btn-reset {
 
     background-color: #ffd200;
-  
     color: whte;
-  
-    width: 160px;
-  
+    width: 200px;
     font-size: 1.1rem;
-  
     border-radius: 0.5rem;
-  
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-  
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  
-  }
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
 
+
+/*Dashboard style*/
+.dbutton {
+    background-color: #474747;
+    margin-top: 80px;
+    padding-top: 20px;
+    margin-right: 25px;
+    width: 100%;
+    height: 200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;
+    font-size: 100px;
+    font-weight:800;
+    vertical-align: middle;
+}
+
+.dbutton:hover {
+    background-color: #CD9007;
+    color: white;
+}
