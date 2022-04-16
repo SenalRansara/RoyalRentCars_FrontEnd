@@ -67,9 +67,6 @@ function AddReservation() {
 
                         <div className="row">
                           <h3 className="header-reservation">New Reservation</h3>
-
-
-                            
                         </div>
 
 
@@ -167,7 +164,7 @@ function AddReservation() {
 
                                     <div class="form-group-input-long">
                                         <label for="remarks">Remarks</label>
-                                        <input type="remarks" class="form-control" id="remarks" placeholder="Special details about Reservation"
+                                        <input type="text" class="form-control" id="remarks" placeholder="Special details about Reservation"
                                         onChange={(e) => {setRemarks(e.target.value)}}/>
                                     </div>
 
@@ -186,20 +183,20 @@ function AddReservation() {
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group-input">
-                                        <label for="inputPaymentAmount4">Deposit Amount</label>
-                                        <input type="text" class="form-control" id="inputPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
+                                        <label for="inputDepositAmount4">Deposit Amount</label>
+                                        <input type="text" class="form-control" id="inputDepositAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
                                         onChange={(e) => {setDeposit(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input">
-                                        <label for="inputPaymentAmount4">Advanced Payment Amount</label>
-                                        <input type="text" class="form-control" id="inputPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
+                                        <label for="inputAdvancedPaymentAmount4">Advanced Payment Amount</label>
+                                        <input type="text" class="form-control" id="inputAdvancedPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
                                         onChange={(e) => {setAdvancedPayment(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input">
-                                        <label for="inputPaymentAmount4">Total Reservation Amount</label>
-                                        <input type="text" class="form-control" id="inputPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
+                                        <label for="inputReservationPaymentAmount4">Total Reservation Amount</label>
+                                        <input type="text" class="form-control" id="inputReservationPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
                                         onChange={(e) => {setTotalReservation(e.target.value)}}/>
                                     </div>
                                     
