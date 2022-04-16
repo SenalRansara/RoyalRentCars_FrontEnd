@@ -17,6 +17,7 @@ function AddReservation() {
     const [from, setFrom] = useState();
     const [to , setTo] = useState("");
     const [numberOfVehivles, setNumberOfVehivles ] = useState("");
+    const [remarks, setRemarks ] = useState("");
     const [deposit , setDeposit ] = useState("");
     const [advancedPayment , setAdvancedPayment ] = useState("");
     const [totalReservation , setTotalReservation ] = useState("");
@@ -41,6 +42,7 @@ function AddReservation() {
             from,
             to,
             numberOfVehivles,
+            remarks,
             deposit,
             advancedPayment,
             totalReservation,
@@ -48,7 +50,7 @@ function AddReservation() {
         }
         createReservation(newReservation).then((res)=>{
             if(res.ok){
-                alert("RReservation Added Successfully");
+                alert("Reservation Added Successfully");
                 window.location.reload();
             }else{
                 alert("Something Went Wrong");
@@ -75,6 +77,11 @@ function AddReservation() {
                                     <h6 className="text-left mt-4 mb-25" id="sub-heading">Customer Details</h6>
                                     <hr></hr>
                                 </div>
+                                <div className="row">
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <form form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
+                                <div class="form-row">
+
                                 <div class="form-group-input-long">
                                     <label for="inputReservationID">Customer ID</label>
                                     <input type="text" class="form-control" id="inputReservationID" placeholder="Cus001"
@@ -108,10 +115,7 @@ function AddReservation() {
                                  <h6 className="text-left mt-4 mb-4" id="sub-heading">Reservation Details</h6>
                                  <hr></hr>
                                 </div>
-                        <div className="row">
-                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <form form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
-                                <div class="form-row">
+                        
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
                                         <input type="date" class="form-control" id="inputFrom4" placeholder="2020-01-01"
@@ -154,7 +158,22 @@ function AddReservation() {
                                             
                                         </select>
                                     </div>
+
+                                    <div class="form-group-input-long">
+                                        <label for="eventType">Event Type</label>
+                                        <input type="eventType" class="form-control" id="eventType" placeholder="Wedding"
+                                        onChange={(e) => {setEventType(e.target.value)}}/>
+                                    </div>
+
+                                    <div class="form-group-input-long">
+                                        <label for="remarks">Remarks</label>
+                                        <input type="remarks" class="form-control" id="remarks" placeholder="Special details about Reservation"
+                                        onChange={(e) => {setRemarks(e.target.value)}}/>
+                                    </div>
+
                                 </div>
+
+                                
 
 
                             
