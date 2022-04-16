@@ -245,7 +245,7 @@ function AddEmployee() {
                     <div className="container">
                         <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                <h3 className="text-left mt-4 mb-4">Add new employee</h3>
+                                <h3 className="text-left mt-4 mb-4">Add New Employee</h3>
                             </div>
                         </div>
                         <div className="row">
