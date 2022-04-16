@@ -80,7 +80,7 @@ function AddReservation() {
                                 <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <form form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
-                                <div class="form-row">
+                            <div class="form-row">
 
                                 <div class="form-group-input-long">
                                     <label for="inputReservationID">Customer ID</label>
