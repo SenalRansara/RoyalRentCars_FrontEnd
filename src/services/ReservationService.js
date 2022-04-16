@@ -7,7 +7,9 @@ const HOST = "http://localhost:8000/api";
 
 export const createReservation = async (Payload) => {
     try {
+        console.log("Payload",Payload)
     await axios.post(`${HOST}/addReservation`, Payload);
+
     return {
         ok: true,
     };
