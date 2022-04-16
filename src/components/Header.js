@@ -19,7 +19,7 @@ function Header() {
                 <a href="/AllRental">Rentals</a>
                 <a href="/AllReservation">Events</a>
                 <a href="/AllVehicle">Vehicles</a>
-                <a href="#">Human Resource</a>
+                <a href="/AllEmployee">Human Resource</a>
 
             </div>
         </div>
