@@ -9,9 +9,6 @@ function Header() {
                     <div className="header-col">
                         <img className="headerLogo" src={Logo} width="400px" height="150px" alt="logo" />
                     </div>
-                    <div className="log">
-                        <a href="" className="logout">Logout</a>
-                    </div>
                 </div>
             </header>
             <div class="topnav">
@@ -20,6 +17,7 @@ function Header() {
                 <a href="/AllReservation">Events</a>
                 <a href="/AllVehicle">Vehicles</a>
                 <a href="/AllEmployee">Human Resource</a>
+                <a className="float-right" href="/AllEmployee">Logout</a>
 
             </div>
         </div>
