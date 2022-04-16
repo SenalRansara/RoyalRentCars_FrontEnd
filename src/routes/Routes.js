@@ -12,6 +12,7 @@ import AddEmployee from "../pages/employee/AddEmployee";
 
 //Ravindu
 import ReservationView from "../pages/reservation/ViewReservation";
+import AddReservation from "../pages/reservation/AddReservation";
 
 
 // Kaveen
@@ -35,6 +36,7 @@ function AppRoutes() {
 
         {/* Ravindu */}
         <Route path="/AllReservation" exact component={ReservationView} />
+        <Route path="/AddReservation" exact component={AddReservation} />
 
 
 
