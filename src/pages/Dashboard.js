@@ -38,7 +38,7 @@ return (
             <a href="/AllEmployee">
                 <button type="button" className=" dbutton" id="btn-dash">
                     <i className="fa fb fa-group"></i>
-                    <span className="lead align-top ">Employee Management</span>
+                    <span className="lead align-top ">Human Resource</span>
                 </button>
                 </a>
             </div>
