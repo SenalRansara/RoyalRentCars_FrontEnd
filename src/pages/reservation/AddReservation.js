@@ -80,12 +80,12 @@ function AddReservation() {
 
                                 <div class="form-group-input-long">
                                     <label for="inputReservationID">Customer ID</label>
-                                    <input type="text" class="form-control" id="inputReservationID" placeholder="Cus001"
+                                    <input type="text" class="form-control" id="inputReservationID" placeholder="Cus001" required
                                     onChange={(e) => {setReservationID(e.target.value)}}/>
                                 </div>
                                 <div class="form-group-input-long">
                                     <label for="inputFullName">Full Name</label>
-                                    <input type="text" class="form-control" id="inputFullName" placeholder="Kasun Perera"
+                                    <input type="text" class="form-control" id="inputFullName" placeholder="Kasun Perera" required
                                     onChange={(e) => {setCustomerName(e.target.value)}}/>
                                 </div>
                                 <div class="form-group-input-long">
@@ -102,7 +102,7 @@ function AddReservation() {
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" placeholder="0711936210" pattern="[0-9]{10}" title="must be a 10 digit number"
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="must be a 10 digit number"
                                         onChange={(e) => {setContactNumber(e.target.value)}}/>
                                     </div>
                                     <div class="form-group-input">
