@@ -82,7 +82,7 @@ function AddReservation() {
                                 </div>
                                 <div class="form-group-input-long">
                                     <label for="inputFullName">Full Name</label>
-                                    <input type="text" class="form-control" id="inputFullName" placeholder="Ex:-Kasun Perera"
+                                    <input type="text" class="form-control" id="inputFullName" placeholder="Kasun Perera"
                                     onChange={(e) => {setCustomerName(e.target.value)}}/>
                                 </div>
                                 <div class="form-group-input-long">
