@@ -6,6 +6,7 @@ import { createRental } from "../../services/RentalService";
 
 function AddRental() {
 
+    //setting all data into state 
     const [from, setFrom] = useState();
     const [to , setTo] = useState("");
     const [vehicleType, setVehicleType ] = useState("");
@@ -24,6 +25,7 @@ function AddRental() {
     function sendData(e){
         e.preventDefault()
         const newRental = {
+            //creating the structured data object
             //recName:recipeName,
             from,
             to,
@@ -38,6 +40,8 @@ function AddRental() {
             contactNo
 
         }
+
+        //calling the add rental service 
         createRental(newRental).then((res)=>{
             if(res.ok){
                 alert("Rental Added Successfully");
@@ -47,41 +51,42 @@ function AddRental() {
             }
         }) 
     }
-
+//implementing a method to validate NIC number
     const NICValidation = () => {
 
-        const nicErr = {}; //State
-        let NICValid = true; //setting flag
+        const nicErr = {};
+        let NICValid = true;
 
 
         if (customerNIC.trim().length > 12) {
-            nicErr.InValidNIC = " Invalid NIC Number"; // error msg
+            nicErr.InValidNIC = " Invalid NIC Number"; 
             NICValid = false;
         } else if (customerNIC.trim().length < 10) {
-            nicErr.InValidNIC = " Invalid NIC Number"; // error msg
+            nicErr.InValidNIC = " Invalid NIC Number";
             NICValid = false;
         }
-        setNicErr(nicErr);//update error objects
+        setNicErr(nicErr);
         return NICValid;
     }
 
+    //flitering the nic number as 9 digit with V or else 12 digits
     const [isNICValid, setNICIsValid] = useState(false);
     const [NICmessage, setNICMessage] = useState('');
 
-    const NICRegex1 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;
-    const NICRegex2 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+    const nicType01 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;//nic type 1 which including the letter v
+    const nicType02 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
 
     const validateNIC = (event) => {
         const NIC = event.target.value;
-        if (NICRegex1.test(NIC)) {
+        if (nicType01.test(NIC)) {
             setNICIsValid(true);
-            setNICMessage('Your NIC looks good!');
-        } else if (NICRegex2.test(NIC)) {
+            setNICMessage('Matching the required Type!');
+        } else if (nicType02.test(NIC)) {
             setNICIsValid(true);
-            setNICMessage('Your NIC looks good!');
+            setNICMessage('Matching the required Type!');
         } else {
             setNICIsValid(false);
-            setNICMessage('Please enter a valid NIC Number!');
+            setNICMessage('Please enter a valid NIC Number *');
         }
     };
 
@@ -100,6 +105,7 @@ function AddRental() {
                         </div>
                         <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                {/*form to get data*/}
                             <form form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
                                 <div class="form-row">
                                     <div class="form-group-input">
@@ -179,11 +185,11 @@ function AddRental() {
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">Identity Number :</label>
-                                        <input type="text" class="form-control" id="inputIdentityNumber4" placeholder="7355481176V"
+                                        <input type="text" class="form-control" id="inputIdentityNumber4" placeholder="680681343V/196806813430"
                                         onChange={(e) => {
                                             setCustomerNIC(e.target.value);
                                             validateNIC(e);}}/>
-                                        <div className={`message ${isNICValid ? 'success' : 'error'}`}>
+                                        <div className={`message ${isNICValid ? 'success' : 'error'}`} id="error-message">
                                             {NICmessage}
                                         </div>   
                                     </div>
