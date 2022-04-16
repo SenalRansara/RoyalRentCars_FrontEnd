@@ -1,8 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
 
 
 function Dashboard(props) {
 return (
+    <>
+        <Header/>
     <div>
         <div className="component-body">
         <div className="dashboard">
@@ -47,7 +50,7 @@ return (
     </div>
     </div>
     </div>
-
+</>
 );
 }
 

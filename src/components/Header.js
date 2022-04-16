@@ -12,7 +12,7 @@ function Header() {
                 </div>
             </header>
             <div class="topnav">
-                <a class="active" href="/">Home</a>
+                <a class="active" href="/Dashboard">Home</a>
                 <a href="/AllRental">Rentals</a>
                 <a href="/AllReservation">Events</a>
                 <a href="/AllVehicle">Vehicles</a>

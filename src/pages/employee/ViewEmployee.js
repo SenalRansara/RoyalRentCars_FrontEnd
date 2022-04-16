@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
 import { getAllEmployeesService } from "../../services/EmployeeService";
+import Header from "../../components/Header";
 
 export default function ViewEmployee() {
 
@@ -25,6 +26,8 @@ useEffect(() => {
     //adding components to the page body
     return (
         /* side navigtaion bar components*/
+        <>
+        <Header/>
         <div className="container" id="height">
     
             {/* implementing the meterial table for display data */}
@@ -94,6 +97,7 @@ useEffect(() => {
         </div>
         
         </div>
+        </>
         
         );
     }

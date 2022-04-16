@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import Header from "../../components/Header";
 
 
 import { createReservation } from "../../services/ReservationService";
@@ -58,6 +59,8 @@ function AddReservation() {
     }
 
     return (
+        <>
+        <Header/>
         <div className="body-reservation">
         <div className="page-component-body">
             <div className="container input-main-form-emp">
@@ -236,6 +239,7 @@ function AddReservation() {
             </div>
         </div>
         </div>
+        </>
 
     )
 }

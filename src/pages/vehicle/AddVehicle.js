@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import {useHistory} from "react-router-dom";
+import Header from "../../components/Header";
 //import moment from 'moment';
 
 import { createVehicle } from "../../services/VehicleService";
@@ -52,9 +53,9 @@ function AddVehicle() {
         }) 
     }
 
-    return <div class="background-image">
-    (
-    
+    return (
+        <>
+        <Header/>
         <div className="page-component-body">
             <div className="container input-main-form-emp">
                 <div className="tab-content-emp" id="myTabContent">
@@ -217,8 +218,8 @@ function AddVehicle() {
                 </div>
             </div>
         </div>
-    
-    )</div>
+    </>
+    )
 }
 
 export default AddVehicle;

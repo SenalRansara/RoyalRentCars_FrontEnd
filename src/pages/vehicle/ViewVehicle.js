@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
 import { getAllVehicle } from "../../services/VehicleService";
+import Header from "../../components/Header";
 
 //import AddRental from "../modals/addRentalModal";
 //import UpdateRental from "../modals/updateRentalModal";
@@ -40,6 +41,8 @@ useEffect(() => {
   //adding components to the page body
     return (
     /* side navigtaion bar components*/
+    <>
+        <Header/>
     <div className="container" id="height">
 
         {/* implementing the meterial table for display data */}
@@ -108,7 +111,7 @@ useEffect(() => {
     </div>
     
     </div>
-    
+    </>
     );
 }
 

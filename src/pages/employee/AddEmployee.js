@@ -7,6 +7,7 @@ import 'react-datetime/css/react-datetime.css';
 
 
 import { addEmployeeService } from "../../services/EmployeeService";
+import Header from "../../components/Header";
 
 
 function AddEmployee() {
@@ -236,7 +237,8 @@ function AddEmployee() {
 
 
     return (
-
+<>
+        <Header/>
         <div className="page-component-body">
             <div className="container input-main-form-emp">
                 <div className="tab-content-emp" id="myTabContent">
@@ -521,6 +523,7 @@ function AddEmployee() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
