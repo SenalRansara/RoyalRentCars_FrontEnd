@@ -9,6 +9,7 @@ import Dashboard from "../pages/Dashboard";
 // Chamoth
 import ViewEmployee from "../pages/employee/ViewEmployee";
 import AddEmployee from "../pages/employee/AddEmployee";
+import Login from "../components/Login";
 
 
 //Ravindu
@@ -21,13 +22,15 @@ import AddReservation from "../pages/reservation/AddReservation";
 import AddVehicle from "../pages/vehicle/AddVehicle";
 import VehicleView from "../pages/vehicle/ViewVehicle";
 
+
 function AppRoutes() {
     return (
       <Router>
-        <Header/>
+        {/* <Header/> */}
       <Switch>
         {/* Senal */}
-        <Route path="/" exact component={Dashboard} />
+        <Route path="/" exact component={Login} />
+        <Route path="/Dashboard" exact component={Dashboard}/>
         <Route path="/AllRental" exact component={RentalView} />
         <Route path="/AddRental" exact component={AddRental} />
 
@@ -35,6 +38,7 @@ function AppRoutes() {
         {/* Chamoth */}
         <Route path="/AllEmployee" exact component={ViewEmployee} />
         <Route path="/AddEmployee" exact component={AddEmployee} />
+      
 
 
         {/* Ravindu */}

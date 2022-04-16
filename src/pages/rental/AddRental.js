@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Header from "../../components/Header";
 
 //import moment from 'moment';
 
@@ -94,6 +95,8 @@ function AddRental() {
     };
 
     return (
+        <>
+        <Header/>
         <div className="body-rental">
         <div className="page-component-body">
             <div className="container input-main-form-emp">
@@ -217,6 +220,7 @@ function AddRental() {
             </div>
         </div>
         </div>
+        </>
 
     )
 }
