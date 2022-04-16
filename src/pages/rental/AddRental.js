@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 //import moment from 'moment';
 
@@ -19,6 +20,7 @@ function AddRental() {
     const [customerNIC , setCustomerNIC ] = useState("");
     const [nicErr , setNicErr ] = useState("")
     const [contactNo , setContactNo ] = useState("");
+    const history = useHistory();
     //const [createdAt , setCreatedAt ] = useState("");
 
 
@@ -45,6 +47,7 @@ function AddRental() {
         createRental(newRental).then((res)=>{
             if(res.ok){
                 alert("Rental Added Successfully");
+                history.push("/AllRental");//redirected to the view page after success data entry
                 window.location.reload();
             }else{
                 alert("Something Went Wrong");
