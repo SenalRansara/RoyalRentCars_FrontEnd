@@ -7,7 +7,7 @@ const HOST = "http://localhost:8000/api";
 
 export const createVehicle = async (Payload) => {
     try {
-    await axios.post(`${HOST}/vehicle/save`, Payload);
+    await axios.post(`${HOST}/addVehicle`, Payload);
     return {
         ok: true,
     };

@@ -49,7 +49,7 @@ margin-bottom: 10px;
     position: relative;
     padding: 20px 0;
     background-color: #3b3b3b;
-    width: 1520px;
+    width: auto;
     bottom: 0;
     top: 2rem;
     height: 8rem;
@@ -85,6 +85,17 @@ margin-bottom: 10px;
     background-size: 1500px 1000px;
     margin-top: 0;
 }  */
+
+/* .background-image{
+    background-image: url('C:\Users\KAVEEN\Documents\ITPM\fontend\RoyalRentCars_FrontEnd\src\assets\Vehicle-Dealer-Tips0.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    
+} */
 
 .page-component-body{ 
     min-height: 700px;
