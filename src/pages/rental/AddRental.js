@@ -116,12 +116,12 @@ function AddRental() {
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From :</label>
-                                        <input type="date" class="form-control" id="inputFrom4" placeholder="2020-01-01"
+                                        <input type="date" class="form-control" id="inputFrom4" 
                                         onChange={(e) => {setFrom(e.target.value)}}/>
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputTo4">To :</label>
-                                        <input type="date" class="form-control" id="inputTo4" placeholder=""
+                                        <input type="date" class="form-control" id="inputTo4" 
                                         onChange={(e) => {setTo(e.target.value)}}/>
                                     </div>
                                 </div>

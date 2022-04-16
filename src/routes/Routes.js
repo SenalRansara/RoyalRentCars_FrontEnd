@@ -15,12 +15,13 @@ import Login from "../components/Login";
 //Ravindu
 import ReservationView from "../pages/reservation/ViewReservation";
 import AddReservation from "../pages/reservation/AddReservation";
-
+import Signup from "../components/signup";
 
 // Kaveen
 
 import AddVehicle from "../pages/vehicle/AddVehicle";
 import VehicleView from "../pages/vehicle/ViewVehicle";
+
 
 
 function AppRoutes() {
@@ -30,6 +31,7 @@ function AppRoutes() {
       <Switch>
         {/* Senal */}
         <Route path="/" exact component={Login} />
+        <Route path="/Signup" exact component={Signup} />
         <Route path="/Dashboard" exact component={Dashboard}/>
         <Route path="/AllRental" exact component={RentalView} />
         <Route path="/AddRental" exact component={AddRental} />

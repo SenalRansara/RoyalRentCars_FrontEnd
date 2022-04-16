@@ -17,7 +17,7 @@ function Header() {
                 <a href="/AllReservation">Events</a>
                 <a href="/AllVehicle">Vehicles</a>
                 <a href="/AllEmployee">Human Resource</a>
-                <a className="float-right" href="/AllEmployee">Logout</a>
+                <a className="float-right" href="/">Logout</a>
 
             </div>
         </div>
