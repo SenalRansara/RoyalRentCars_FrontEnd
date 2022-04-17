@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 // import Header from "./Header";
 
 import Logo from '../assets/Logo.png';
@@ -8,30 +10,40 @@ import Logo from '../assets/Logo.png';
 
 function Signup() {
 
-    const [userName, setUserName] = useState();
-    const [password , setPassword ] = useState("");
+    let history = useHistory();
+    const [username, setUserName] = useState("");
+    const [password, setPassword] = useState("");
     const [email, setEmail ] = useState("");
     
     
     //const [createdAt , setCreatedAt ] = useState("");
 
-    function sendData(e){
-        e.preventDefault()
-        const newSignUp = {
-            
-            userName,
-            password,
-            email,
-            
-        }
-        Signup(newSignUp).then((res)=>{
-            if(res.ok){
-                alert("User Added Successfully");
-                window.location.reload();
-            }else{
-                alert("Something Went Wrong");
+    function checkUser(e) {//function checks the availbilty of the admin within the system
+        e.preventDefault();
+            if (username == "" || password == "" || email == "") {
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'Please fill all the required fields!',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 1500
+                }
+                )
+
+            } else {
+                Swal.fire({
+                    title: 'Sucess!',
+                    text: 'Welcome Admin',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                }
+                )
+
+                    history.push("/Dashboard");
+                
             }
-        }) 
+        
     }
 
     return (
@@ -60,20 +72,20 @@ function Signup() {
                                         <h1>Sign up</h1>
                                         <br></br>
                                         <br></br>
-                                        <form onSubmit={sendData}>
+                                        <form onSubmit={checkUser}>
                                         <div class="form-group col-md-12">
-                                            <label for="inputFrom4" className="sign-up-label" >User Name</label>
-                                            <input type="text" class="form-control" id="inputUN" placeholder="Ex:-Cus001"
+                                            <label for="inputUN" className="sign-up-label" >User Name</label>
+                                            <input type="text" class="form-control" id="inputUN" placeholder="Admin1"
                                             onChange={(e) => {setUserName(e.target.value)}}/>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="inputUN" className="sign-up-label">Password</label>
-                                            <input type="password" class="form-control" id="inputUN" placeholder="Ex:-Cus001"
+                                            <input type="password" class="form-control" id="inputUN" placeholder="Enter Strong Password"
                                             onChange={(e) => {setPassword(e.target.value)}}/>
                                         </div>
                                         <div class="form-group col-md-12" >
                                             <label for="inputUN" className="sign-up-label">Email</label>
-                                            <input type="text" class="form-control" id="inputUN" placeholder="Ex:-Cus001"
+                                            <input type="text" class="form-control" id="inputUN" placeholder="admin1@gmail.com"
                                             onChange={(e) => {setEmail(e.target.value)}}/>
                                         </div>
                                             <div className="text-right">
@@ -82,9 +94,7 @@ function Signup() {
                                             </div>
                                             <div className="row mb-4">
                                         <div className="col py-3 text-center">
-                                            <button type="submit" className="btn btn-ok btn-success">
-                                                Submit
-                                            </button>
+                                            <button type="submit" className="btn btn-ok btn-success">SignUp</button>
                                         </div>
                                         <div className="col py-3 text-center">
                                             <button type="reset" className="btn btn-reset btn-warning">
