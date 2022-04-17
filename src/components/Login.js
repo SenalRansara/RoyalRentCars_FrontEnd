@@ -47,8 +47,9 @@ function Login() {
 
     return (
         <>
+        <div className="loginbg">
             <div className="page-body">
-            <div className="header-basic">
+            <div className="header-basic loginbg">
                 <header>
                 <div className="row">
                     <div className="header-col">
@@ -59,7 +60,7 @@ function Login() {
             </div>
             </div>
 
-            <div className="page-component-body pt-5 mt-5">
+            <div className="page-component-body loginbg1 pt-0 mt-9">
 
                 <div className="row no-gutter">
                     <div className="col-md-6 d-none d-md-flex bg-image"></div>
@@ -98,6 +99,7 @@ function Login() {
 
                 </div>
             </div>
+        </div>    
         </>
 
     )

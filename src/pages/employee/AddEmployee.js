@@ -239,6 +239,7 @@ function AddEmployee() {
     return (
 <>
         <Header/>
+        <div className="col-md-20 d-none d-md-flex emp-bg-image">
         <div className="page-component-body">
             <div className="container input-main-form-emp">
                 <div className="tab-content-emp" id="myTabContent">
@@ -522,6 +523,7 @@ function AddEmployee() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         </>
     )
