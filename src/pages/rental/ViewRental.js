@@ -31,6 +31,24 @@ useEffect(() => {
     })
 }, []);
 
+  //Delete method implementation
+function onDelete(data) {
+    const id = data.id;
+    let text = "Are you sure want to delete the Rental?";
+        if (window.confirm(text) == true) {
+            deleteRecipe(id).then((res)=>{
+                if(res.ok){
+                    alert("Rental Deleted Successfully");
+                    window.location.reload();
+                }else{
+                    alert("Something Went Wrong");
+                }
+            });
+        } else {
+            window.location.reload();
+}
+};
+
 
   //adding components to the page body
     return (
@@ -69,7 +87,7 @@ useEffect(() => {
             {
                 icon: () => <button className="btn btn-sm btn-danger">Delete</button>,
                 onClick: (event, rowData) => {
-                    //onDelete(rowData);
+                    onDelete(rowData);
                 },
                 },
         ]}
