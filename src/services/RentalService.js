@@ -32,3 +32,31 @@ export const getAllRental = async () => {
     };
     }
 };
+
+//calling update operation
+export const updateRental= async (id,Payload) => {
+    try {
+    await axios.put(`${HOST}/rental/update/${id}`,Payload);
+    return {
+        ok: true,
+    };
+    } catch (error) {
+    return {
+        ok: false, err: error.response.data.status
+    };
+    }
+};
+
+//calling delete operation
+export const deleteRental= async (id) => {
+    try {
+        await axios.post(`${HOST}/rental/delete/${id}`);
+    return {
+        ok: true,
+    };
+    } catch (error) {
+    return {
+        ok: false, err: error.response.data.status
+    };
+    }
+};

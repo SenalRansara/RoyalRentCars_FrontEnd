@@ -75,6 +75,7 @@ useEffect(() => {
         ]}
         columns={[
             { title: "Customer", field: "customerName", type: "string" },
+            { title: "NIC", field: "customerNIC", type: "string" },
             { title: "Vehicle Type", field: "vehicleType", type: "string" },
             { title: "From", field: "from", type: "string" },
             { title: "To", field: "to", type: "string" },
