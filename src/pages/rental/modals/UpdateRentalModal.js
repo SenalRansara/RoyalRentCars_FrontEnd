@@ -117,14 +117,14 @@ function UpdateRental(props) {
                         </div>
                         <div class="form-group-input">
                             <label for="inputTo4">To :</label>
-                            <input type="date" class="form-control" id="inputTo4" 
+                            <input type="date" class="form-control" id="inputTo4" value={to} 
                             onChange={(e) => {setTo(e.target.value)}}/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group-input">
                             <label for="inputVehicleType">Vehicle Type :</label>
-                            <select id="inputVehicleType" class="form-control" onChange={(e) => {setVehicleType(e.target.value)}}>
+                            <select id="inputVehicleType" class="form-control" value={vehicleType} onChange={(e) => {setVehicleType(e.target.value)}}>
                                 <option selected>Choose...</option>
                                 <option>Car</option>
                                 <option>Bus</option>
@@ -133,7 +133,7 @@ function UpdateRental(props) {
                         </div>
                         <div class="form-group-input">
                             <label for="inputVehicleModel">Vehicle Model :</label>
-                            <select id="inputVehicleModel" class="form-control" onChange={(e) => {setVehicleModel(e.target.value)}}>
+                            <select id="inputVehicleModel" class="form-control" value={vehicleModel} onChange={(e) => {setVehicleModel(e.target.value)}}>
                                 <option selected>Choose...</option>
                                 <option>Toyota</option>
                                 <option>Honda</option>
@@ -145,7 +145,7 @@ function UpdateRental(props) {
                     <div class="form-group-input-long">
                         <label for="inputAddress">Pick Up Address :</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Kandy Road,Kaduwela"
-                        onChange={(e) => {setPickAddress(e.target.value)}}/>
+                        value={pickAddress} onChange={(e) => {setPickAddress(e.target.value)}}/>
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                         <h6 className="text-left mt-4 mb-4" id="sub-heading">Payment Details</h6>
@@ -155,11 +155,11 @@ function UpdateRental(props) {
                         <div class="form-group-input">
                             <label for="inputPaymentAmount4">Payment Amount :</label>
                             <input type="text" class="form-control" id="inputPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
-                            onChange={(e) => {setPaymentAmount(e.target.value)}}/>
+                            value={paymentAmount} onChange={(e) => {setPaymentAmount(e.target.value)}}/>
                         </div>
                         <div class="form-group-input">
                             <label for="inputPaymentMethod">Payment Method :</label>
-                            <select id="inputPaymentMethod" class="form-control" onChange={(e) => {setPaymentMethod(e.target.value)}}>
+                            <select id="inputPaymentMethod" class="form-control" value={paymentMethod} onChange={(e) => {setPaymentMethod(e.target.value)}}>
                                 <option selected>Choose...</option>
                                 <option>Cash payment</option>
                                 <option>Card payment</option>
@@ -172,23 +172,23 @@ function UpdateRental(props) {
                     <div class="form-group-input-long">
                         <label for="inputFullName">Full Name :</label>
                         <input type="text" class="form-control" id="inputFullName" placeholder="Ex:-John Snow"
-                        onChange={(e) => {setCustomerName(e.target.value)}}/>
+                        value={customerName} onChange={(e) => {setCustomerName(e.target.value)}}/>
                     </div>
                     <div class="form-group-input-long">
                         <label for="inputAddress">Address :</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Pittugala,Malabe"
-                        onChange={(e) => {setCustomerAddress(e.target.value)}}/>
+                        value={customerAddress} onChange={(e) => {setCustomerAddress(e.target.value)}}/>
                     </div>
                     <div class="form-row">
                         <div class="form-group-input">
                             <label for="inputTelephoneNumber4">Telephone Number :</label>
                             <input type="number" class="form-control" id="inputTelephoneNumber4" placeholder="0771212112" pattern="[0-9]{10}" title="must be a 10 digit number"
-                            onChange={(e) => {setContactNo(e.target.value)}}/>
+                            value={contactNo} onChange={(e) => {setContactNo(e.target.value)}}/>
                         </div>
                         <div class="form-group-input">
                             <label for="inputIdentityNumber4">Identity Number :</label>
                             <input type="text" class="form-control" id="inputIdentityNumber4" placeholder="680681343V/196806813430"
-                            onChange={(e) => {
+                            value={customerNIC} onChange={(e) => {
                                 setCustomerNIC(e.target.value);
                                 validateNIC(e);}}/>
                             <div className={`message ${isNICValid ? 'success' : 'error'}`} id="error-message">
