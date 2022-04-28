@@ -50,6 +50,7 @@ function UpdateRental(props) {
             contactNo
         }
 
+        //calling update service
         updateRental(props.data.id,Rentals).then((res)=>{
             if(res.ok){
                 alert("Rental Updated Successfully");
