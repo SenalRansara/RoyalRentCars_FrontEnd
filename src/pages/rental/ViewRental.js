@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import { getAllRental } from "../../services/RentalService";
-import Header from "../../components/Header";
+import { getAllRental,deleteRental } from "../../services/RentalService";
 
-//import AddRental from "../modals/addRentalModal";
-//import UpdateRental from "../modals/updateRentalModal";
+import Header from "../../components/Header";
+import UpdateRental from "./modals/UpdateRentalModal";
 //import Header from "../Header";
 
 
@@ -15,7 +14,7 @@ export default function RentalView() {
 const [rental, setRental] = useState([]);
 const [addRentalModal, setRentalModal] = useState(false);
 const [updateRentalModal, setUpdateRentalModal] = useState(false);
-//const [updateData, setUpdateData] = useState();
+const [updateData, setUpdateData] = useState();
 
 
 
@@ -36,7 +35,7 @@ function onDelete(data) {
     const id = data.id;
     let text = "Are you sure want to delete the Rental?";
         if (window.confirm(text) == true) {
-            deleteRecipe(id).then((res)=>{
+            deleteRental(id).then((res)=>{
                 if(res.ok){
                     alert("Rental Deleted Successfully");
                     window.location.reload();
@@ -81,7 +80,7 @@ function onDelete(data) {
             ),
             onClick: (event, rowData) => {
                 setUpdateRentalModal(true);
-                // setUpdateData(rowData);
+                setUpdateData(rowData);
             },
             },
             {
@@ -111,14 +110,13 @@ function onDelete(data) {
         />
     </div>
     <div>
-    <Modal show={addRentalModal} onHide={()=>{
-        setRentalModal(false)
-    }}>
-    </Modal> 
-
     <Modal show={updateRentalModal} onHide={()=>{
-        setUpdateRentalModal(false)
-    }}>
+        setUpdateRentalModal(false) 
+    }}
+    >
+        <UpdateRental data = {updateData} onHide={()=>{
+        setUpdateRentalModal(false)}} />
+        
     </Modal> 
 
     </div>

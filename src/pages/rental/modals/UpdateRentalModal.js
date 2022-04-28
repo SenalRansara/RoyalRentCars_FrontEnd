@@ -6,7 +6,7 @@ import{updateRental} from "../../../services/RentalService";
 
 function UpdateRental(props) {
 
-    //console.log("yoy ",props);
+    console.log("yoy ",props);
     useEffect(()=>{
         setFrom(props.data.from);
         setTo(props.data.to);
@@ -112,7 +112,7 @@ function UpdateRental(props) {
                     <div class="form-row">
                         <div class="form-group-input">
                             <label for="inputFrom4">From :</label>
-                            <input type="date" class="form-control" id="inputFrom4" 
+                            <input type="date" class="form-control" id="inputFrom4" value={from}
                             onChange={(e) => {setFrom(e.target.value)}}/>
                         </div>
                         <div class="form-group-input">
