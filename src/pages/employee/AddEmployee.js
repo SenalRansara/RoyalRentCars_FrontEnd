@@ -31,8 +31,6 @@ function AddEmployee() {
     const [homeContact, setHomeContact] = useState("");
     const [empPic, setEmpPic] = useState("");
     const [cv, setCV] = useState("");
-
-
     const [TeleErr, setTeleNoErr] = useState("");
     const [HomeTeleErr, setHomeTeleNoErr] = useState("");
     const [NICErr, setNICErr] = useState("");
