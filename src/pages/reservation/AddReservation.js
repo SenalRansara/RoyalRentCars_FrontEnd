@@ -99,7 +99,7 @@ function AddReservation() {
 
                                 <div class="form-group-input-long">
                                     <label for="inputEmailAddress">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" title="Enter Email in Proper format"
+                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com"  title="Enter Email in Proper format"
                                     onChange={(e) => {setEmail(e.target.value)}}/>
                                 </div>
                                 <div class="form-row">
