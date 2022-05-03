@@ -49,3 +49,16 @@ export const updateReservation= async (id,Payload) => {
     }
 };
 
+//calling delete operation
+export const deleteReservation= async (id) => {
+    try {
+        await axios.post(`${HOST}/deleteReservation/${id}`);
+    return {
+        ok: true,
+    };
+    } catch (error) {
+    return {
+        ok: false, err: error.response.data.status
+    };
+    }
+};
