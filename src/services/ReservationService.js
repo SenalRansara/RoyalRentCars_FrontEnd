@@ -34,3 +34,18 @@ export const getAllReservation = async () => {
     };
     }
 };
+
+//calling update operation
+export const updateReservation= async (id,Payload) => {
+    try {
+    await axios.put(`${HOST}/updateReservation/${id}`,Payload);
+    return {
+        ok: true,
+    };
+    } catch (error) {
+    return {
+        ok: false, err: error.response.data.status
+    };
+    }
+};
+
