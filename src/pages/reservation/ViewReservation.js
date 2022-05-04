@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import { getAllReservation } from "../../services/ReservationService";
+import { getAllReservation,deleteReservation } from "../../services/ReservationService";
 import Header from "../../components/Header";
 
 //import AddReservation from "../modals/addReservationModal";
-//import UpdateReservation from "../modals/updateReservationModal";
+import UpdateReservation from "./modals/updateReservationModal";
 //import Header from "../Header";
 
 
@@ -15,7 +15,7 @@ export default function ReservationView() {
 const [reservation, setReservation] = useState([]);
 const [addReservationModal, setReservationModal] = useState(false);
 const [updateReservationModal, setUpdateReservationModal] = useState(false);
-//const [updateData, setUpdateData] = useState();
+const [updateData, setUpdateData] = useState();
 
 
 
@@ -33,10 +33,23 @@ useEffect(() => {
 }, []);
 
 
-// //creating function for add a Reservation
-// const addReservation = () =>{
-//     setReservationModal(true);
-// }
+  //Delete method implementation
+  function onDelete(data) {
+    const id = data.reservationID;
+    let text = "Are you sure want to delete the Reservation?";
+        if (window.confirm(text) == true) {
+            deleteReservation(id).then((res)=>{
+                if(res.ok){
+                    alert("Reservation Deleted Successfully");
+                    window.location.reload();
+                }else{
+                    alert("Something Went Wrong");
+                }
+            });
+        } else {
+            window.location.reload();
+}
+};
 
 
   //adding components to the page body
@@ -70,13 +83,13 @@ useEffect(() => {
             ),
             onClick: (event, rowData) => {
                 setUpdateReservationModal(true);
-                // setUpdateData(rowData);
+                setUpdateData(rowData);
             },
             },
             {
                 icon: () => <button className="btn btn-sm btn-danger">Delete</button>,
                 onClick: (event, rowData) => {
-                    //onDelete(rowData);
+                    onDelete(rowData);
                 },
                 },
         ]}
@@ -102,14 +115,15 @@ useEffect(() => {
         />
     </div>
     <div>
-    <Modal show={addReservationModal} onHide={()=>{
-        setReservationModal(false)
-    }}>
-    </Modal> 
-
     <Modal show={updateReservationModal} onHide={()=>{
         setUpdateReservationModal(false)
-    }}>
+    }}
+    >
+    
+
+    <UpdateReservation data={updateData} onHide={()=>{
+        setUpdateReservationModal(false)
+    }}/>
     </Modal> 
 
     </div>

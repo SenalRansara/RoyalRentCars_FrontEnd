@@ -1,12 +1,31 @@
-import { React, useState } from "react";
-import Header from "../../components/Header";
+import React,{useState,useEffect}from "react";
+import { Modal } from "react-bootstrap";
 
+import{updateReservation} from "../../../services/ReservationService";
 
-import { createReservation } from "../../services/ReservationService";
+function UpdateReservation(props) {
 
-function AddReservation() {
+    console.log("uf",props);
+    useEffect(()=>{
+        setReservationID(props.data.reservationID)
+        setCustomerName(props.data.customerName)
+        setContactNumber(props.data.contactNumber)
+        setnic(props.data.nic)
+        setAddress(props.data.address)
+        setEmail(props.data.email)
+        setEventType(props.data.eventType)
+        setVehicleType(props.data.vehicleType)
+        setFrom(props.data.from)
+        setTo(props.data.to)
+        setNumberOfVehivles(props.data.numberOfVehivles)
+        setRemarks(props.data.remarks)
+        setDeposit(props.data.deposit)
+        setAdvancedPayment(props.data.advancedPayment)
+        setTotalReservation(props.data.totalReservation)
+  
+    },[])
 
-    const [reservationID, setReservationID] = useState();
+    const [reservationID, setReservationID] = useState("");
     const [customerName , setCustomerName ] = useState("");
     const [contactNumber , setContactNumber ] = useState("");
     const [nic , setnic ] = useState("");
@@ -14,23 +33,17 @@ function AddReservation() {
     const [email, setEmail ] = useState("");
     const [eventType, setEventType ] = useState("");
     const [vehicleType, setVehicleType ] = useState("");
-    const [from, setFrom] = useState();
+    const [from, setFrom] = useState("");
     const [to , setTo] = useState("");
     const [numberOfVehivles, setNumberOfVehivles ] = useState("");
     const [remarks, setRemarks ] = useState("");
     const [deposit , setDeposit ] = useState("");
     const [advancedPayment , setAdvancedPayment ] = useState("");
     const [totalReservation , setTotalReservation ] = useState("");
-    
-    
-    
-    
-    
 
     function sendData(e){
         e.preventDefault()
-        const newReservation = {
-            
+        const Reservations = {
             reservationID,
             customerName,
             contactNumber,
@@ -46,11 +59,12 @@ function AddReservation() {
             deposit,
             advancedPayment,
             totalReservation,
-            
         }
-        createReservation(newReservation).then((res)=>{
+
+        //calling update service
+        updateReservation(props.data.reservationID,Reservations).then((res)=>{
             if(res.ok){
-                alert("Reservation Added Successfully");
+                alert("Reservation Updated Successfully");
                 window.location.reload();
             }else{
                 alert("Something Went Wrong");
@@ -58,24 +72,19 @@ function AddReservation() {
         }) 
     }
 
+
+
     return (
-        <>
-        <Header/>
-        <div className="body-reservation">
-        <div className="page-component-body">
-            <div className="container input-main-form-emp">
-                <div className="tab-content-emp" id="myTabContent">
-                    <div className="container">
-
-                        <div className="row">
-                          <h3 className="header-reservation">New Reservation</h3>
-                        </div>
-
-
-                                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div>
+            <Modal.Header closeButton>
+                <Modal.Title>Update a Reservation</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                                     <h6 className="text-left mt-4 mb-25" id="sub-heading">Customer Details</h6>
                                     <hr></hr>
                                 </div>
+
                                 <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <form form id="addEmp-form" action="post" className="form" onSubmit={sendData}>
@@ -83,34 +92,34 @@ function AddReservation() {
 
                                 <div class="form-group-input-long">
                                     <label for="inputReservationID">Customer ID</label>
-                                    <input type="text" class="form-control" id="inputReservationID" placeholder="Cus001" required
+                                    <input type="text" class="form-control" id="inputReservationID" value={reservationID}  required
                                     onChange={(e) => {setReservationID(e.target.value)}}/>
                                 </div>
                                 <div class="form-group-input-long">
                                     <label for="inputFullName">Full Name</label>
-                                    <input type="text" class="form-control" id="inputFullName" placeholder="Kasun Perera" required
+                                    <input type="text" class="form-control" id="inputFullName" value={customerName} required
                                     onChange={(e) => {setCustomerName(e.target.value)}}/>
                                 </div>
                                 <div class="form-group-input-long">
                                     <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="No 35A, Temple Road, Maharagama"
+                                    <input type="text" class="form-control" id="inputAddress" value={address}
                                     onChange={(e) => {setAddress(e.target.value)}}/>
                                 </div>
 
                                 <div class="form-group-input-long">
                                     <label for="inputEmailAddress">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com"  title="Enter Email in Proper format"
+                                    <input type="text" class="form-control" id="inputEmailAddress" value={email}  title="Enter Email in Proper format"
                                     onChange={(e) => {setEmail(e.target.value)}}/>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="must be a 10 digit number"
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required value={contactNumber} pattern="[0-9]{9}" title="must be a 10 digit number"
                                         onChange={(e) => {setContactNumber(e.target.value)}}/>
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">NIC Number</label>
-                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V"
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" value={nic}
                                         onChange={(e) => {setnic(e.target.value)}}/>
                                     </div>
                                 </div>
@@ -123,12 +132,12 @@ function AddReservation() {
                         
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
-                                        <input type="date" class="form-control" id="inputFrom4" placeholder="2020-01-01"
+                                        <input type="date" class="form-control" id="inputFrom4" value={from}
                                         onChange={(e) => {setFrom(e.target.value)}}/>
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputTo4">To</label>
-                                        <input type="date" class="form-control" id="inputTo4" placeholder=""
+                                        <input type="date" class="form-control" id="inputTo4" value={to}
                                         onChange={(e) => {setTo(e.target.value)}}/>
                                     </div>
                                 </div>
@@ -137,7 +146,7 @@ function AddReservation() {
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputVehicleType">Vehicle Type</label>
-                                        <select id="inputVehicleType" class="form-control" onChange={(e) => {setVehicleType(e.target.value)}}>
+                                        <select id="inputVehicleType" class="form-control" value={vehicleType} onChange={(e) => {setVehicleType(e.target.value)}}>
                                             <option selected>Choose...</option>
                                             <option>Car</option>
                                             <option>Bus</option>
@@ -148,7 +157,7 @@ function AddReservation() {
                                     </div>
                                     <div class="form-group-input">
                                         <label for="numberOfVehivles">Number Of Vehivles</label>
-                                        <select id="numberOfVehivles" class="form-control" onChange={(e) => {setNumberOfVehivles(e.target.value)}}>
+                                        <select id="numberOfVehivles" class="form-control" value={numberOfVehivles} onChange={(e) => {setNumberOfVehivles(e.target.value)}}>
                                             <option selected>Choose...</option>
                                             <option>01</option>
                                             <option>02</option>
@@ -166,13 +175,13 @@ function AddReservation() {
 
                                     <div class="form-group-input-long">
                                         <label for="eventType">Event Type</label>
-                                        <input type="eventType" class="form-control" id="eventType" placeholder="Wedding"
+                                        <input type="eventType" class="form-control" id="eventType" value={eventType}
                                         onChange={(e) => {setEventType(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input-long">
                                         <label for="remarks">Remarks</label>
-                                        <input type="text" class="form-control" id="remarks" placeholder="Special details about Reservation"
+                                        <input type="text" class="form-control" id="remarks" value={remarks}
                                         onChange={(e) => {setRemarks(e.target.value)}}/>
                                     </div>
 
@@ -192,19 +201,19 @@ function AddReservation() {
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputDepositAmount4">Deposit Amount</label>
-                                        <input type="text" class="form-control" id="inputDepositAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
+                                        <input type="text" class="form-control" id="inputDepositAmount4" value={deposit} required pattern="[0-9]{1,20}" title="Amount must be a number" 
                                         onChange={(e) => {setDeposit(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input">
                                         <label for="inputAdvancedPaymentAmount4">Advanced Payment Amount</label>
-                                        <input type="text" class="form-control" id="inputAdvancedPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
+                                        <input type="text" class="form-control" id="inputAdvancedPaymentAmount4" value={advancedPayment} required pattern="[0-9]{1,20}" title="Amount must be a number" 
                                         onChange={(e) => {setAdvancedPayment(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input">
                                         <label for="inputReservationPaymentAmount4">Total Reservation Amount</label>
-                                        <input type="text" class="form-control" id="inputReservationPaymentAmount4" placeholder="Rs.10000" required pattern="[0-9]{1,20}" title="Amount must be a number" 
+                                        <input type="text" class="form-control" id="inputReservationPaymentAmount4" value={totalReservation} required pattern="[0-9]{1,20}" title="Amount must be a number" 
                                         onChange={(e) => {setTotalReservation(e.target.value)}}/>
                                     </div>
                                     
@@ -234,14 +243,11 @@ function AddReservation() {
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </>
 
+            </Modal.Body>
+            
+        </div>
     )
 }
 
-export default AddReservation;
+export default UpdateReservation;

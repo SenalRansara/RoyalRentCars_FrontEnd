@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import { getAllEmployeesService } from "../../services/EmployeeService";
+import { deleteEmployee, getAllEmployeesService } from "../../services/EmployeeService";
 import Header from "../../components/Header";
+
+import UpdateEmployee from "./modals/UpdateEmployeeModal";
+
 
 export default function ViewEmployee() {
 
 const [emp, setEmp] = useState([]);
 const [addEmpModal, setEmpModal] = useState(false);
-const [updateEmpModal, setUpdateEmpModal] = useState(false);
+const [updateEmployeeModal, setUpdateEmployeeModal] = useState(false);
+const [updateData, setUpdateData] = useState();
 
 //creting a method for retrieve data
 useEffect(() => {
@@ -22,6 +26,26 @@ useEffect(() => {
         }
     })
 }, []);
+
+
+//Delete method implementation
+function onDelete(data) {
+    const empId = data.empId;
+    let text = "Are you sure want to delete the Employee?";
+        if (window.confirm(text) == true) {
+            deleteEmployee(empId).then((res)=>{
+                if(res.ok){
+                    alert("Employee Deleted Successfully");
+                    window.location.reload();
+                }else{
+                    alert("Something Went Wrong");
+                }
+            });
+        } else {
+            window.location.reload();
+}
+};
+
 
     //adding components to the page body
     return (
@@ -53,14 +77,14 @@ useEffect(() => {
                     <button className="btn btn-sm btn-warning">Update</button>
                 ),
                 onClick: (event, rowData) => {
-                    setUpdateEmpModal(true);
-                    // setUpdateData(rowData);
+                    setUpdateEmployeeModal(true);
+                    setUpdateData(rowData);
                 },
                 },
                 {
                     icon: () => <button className="btn btn-sm btn-danger">Delete</button>,
                     onClick: (event, rowData) => {
-                        //onDelete(rowData);
+                        onDelete(rowData);
                     },
                     },
             ]}
@@ -84,14 +108,13 @@ useEffect(() => {
             />
         </div>
         <div>
-        <Modal show={addEmpModal} onHide={()=>{
-            setEmpModal(false)
+        <Modal show={updateEmployeeModal} onHide={()=>{
+            setUpdateEmployeeModal(false)
         }}>
-        </Modal> 
-    
-        <Modal show={updateEmpModal} onHide={()=>{
-            setUpdateEmpModal(false)
-        }}>
+        
+        <UpdateEmployee data={updateData} onHide={()=>{
+            setUpdateEmployeeModal(false)
+        }}/>
         </Modal> 
     
         </div>

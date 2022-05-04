@@ -34,3 +34,33 @@ export const getAllEmployeesService = async () => {
   }
 };
 
+
+//calling update operation
+export const updateEmployee= async (empId, employeePayload) => {
+  try {
+  await axios.put(`${HOST}/employee/update/${empId}`, employeePayload);
+  return {
+      ok: true,
+  };
+  } catch (error) {
+  return {
+      ok: false, err: error.response.data.status
+  };
+  }
+};
+
+
+//calling delete operation
+export const deleteEmployee= async (empId) => {
+  try {
+      await axios.post(`${HOST}/employee/delete/${empId}`);
+  return {
+      ok: true,
+  };
+  } catch (error) {
+  return {
+      ok: false, err: error.response.data.status
+  };
+  }
+};
+
