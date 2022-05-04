@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import { getAllVehicle } from "../../services/VehicleService";
-import Header from "../../components/Header";
+import { getAllVehicle,deleteVehicle } from "../../services/VehicleService";
 
-//import AddRental from "../modals/addRentalModal";
-//import UpdateRental from "../modals/updateRentalModal";
-//import Header from "../Header";
+import Header from "../../components/Header";
+import UpdateVehicle from "./modals/UpdateVehicleModal";
+
 
 
 export default function VehicleView() {
@@ -15,7 +14,7 @@ export default function VehicleView() {
 const [vehicle, setVehicle] = useState([]);
 const [addVehicleModal, setVehicleModal] = useState(false);
 const [updateVehicleModal, setUpdateVehicleModal] = useState(false);
-//const [updateData, setUpdateData] = useState();
+const [updateData, setUpdateData] = useState();
 
 
 
@@ -31,16 +30,30 @@ useEffect(() => {
     })
 }, []);
 
+//Delete method implementation
 
-// //creating function for add a Rental
-// const addRental = () =>{
-//     setRentalModal(true);
-// }
+  function onDelete(data) {
+    const id = data.id;
+    let text = "Are you sure want to delete the vehicle?";
+    // console.log("kaveen", data);
+        if (window.confirm(text) == true) {
+            deleteVehicle(id).then((res)=>{
+                if(res.ok){
+                    alert("Vehicle Deleted Successfully");
+                    window.location.reload();
+                }else{
+                    alert("Something Went Wrong");
+                }
+            });
+        } else {
+            window.location.reload();
+}
+};
 
+ //adding components to the page body
 
-  //adding components to the page body
     return (
-    /* side navigtaion bar components*/
+/* side navigtaion bar components*/
     <>
         <Header/>
     <div className="container" id="height">
@@ -49,16 +62,16 @@ useEffect(() => {
 
         <div className="AllVehicleTable">
         <div style={{ textAlign: "right"}}>
-        <button className="btn btn-success"
-            style={{ marginTop:"50px", marginBottom: "10px" }}>
-            <a
-            href="/AddVehicle"
-            style={{ textDecoration: "none", color: "white"}}
-            >
-            {" "}
-            Add New Vehicle
-            </a>
-        </button>
+            <button className="btn btn-success"
+                style={{ marginTop:"50px", marginBottom: "10px" }}>
+                <a
+                href="/AddVehicle"
+                style={{ textDecoration: "none", color: "white"}}
+                >
+                {" "}
+                Add New Vehicle
+                </a>
+            </button>
         </div>
         <MaterialTable style={{background:"#E3ECFF"}}
         title="All Vehicles"
@@ -69,13 +82,14 @@ useEffect(() => {
             ),
             onClick: (event, rowData) => {
                 setUpdateVehicleModal(true);
-                // setUpdateData(rowData);
+                setUpdateData(rowData);
             },
             },
             {
                 icon: () => <button className="btn btn-sm btn-danger">Delete</button>,
                 onClick: (event, rowData) => {
-                    //onDelete(rowData);
+                    console.log("testing",rowData);
+                    onDelete(rowData);
                 },
                 },
         ]}
@@ -98,14 +112,13 @@ useEffect(() => {
         />
     </div>
     <div>
-    <Modal show={addVehicleModal} onHide={()=>{
-        setVehicleModal(false)
-    }}>
-    </Modal> 
-
     <Modal show={updateVehicleModal} onHide={()=>{
         setUpdateVehicleModal(false)
-    }}>
+    }}
+    >
+        <UpdateVehicle data = {updateData} onHide={()=>{
+        setUpdateVehicleModal(false)}} />
+
     </Modal> 
 
     </div>
