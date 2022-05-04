@@ -63,7 +63,7 @@ function AddEmployee() {
 
             addEmployeeService(newEmployee).then((response) => {
                 const message = response.ok
-                    ? "Employee insertion successful!"
+                    ? "Employee Insertion Successful!"
                     : response.err;
 
                 if (response.ok) {
@@ -393,7 +393,7 @@ function AddEmployee() {
                                     </div>
 
                                     <div className="row">
-                                        <div className="form-group col-md-6">
+                                        <div className="form-group col-md-12">
                                             <label className="form-label" for="CurrAdd">Current address:</label>
                                             <input
                                                 required

@@ -81,6 +81,7 @@ function UpdateEmployee(emp) {
                 cv,
             };
 
+            //calling update service
             updateEmployee(empId, Employee).then((response)=>{
                 const message = response.ok
                     ? "Employee Update Successful!"
@@ -121,11 +122,12 @@ function UpdateEmployee(emp) {
         let teleValid = true; //setting flag
 
 
-        if (mobileNo.trim().length > 10) {
+        console.log("res>>", typeof mobileNo)
+        if (mobileNo.length > 10) {
 
             TeleErr.InValidTeleNo = " *Invalid Telephone Number"; // error msg
             teleValid = false;
-        } else if (mobileNo.trim().length < 10) {
+        } else if (mobileNo.length < 10) {
             TeleErr.InValidTeleNo = " *Invalid Telephone Number"; // error msg
             teleValid = false;
         }
@@ -144,11 +146,11 @@ function UpdateEmployee(emp) {
         let HometeleValid = true; //setting flag
 
 
-        if (homeContact.trim().length > 10) {
+        if (homeContact.length > 10) {
 
             HomeTeleErr.InValidTeleNo = " *Invalid  Emergency contact number:"; // error msg
             HometeleValid = false;
-        } else if (homeContact.trim().length < 10) {
+        } else if (homeContact.length < 10) {
             HomeTeleErr.InValidTeleNo = " *Invalid Emergency contact number:"; // error msg
             HometeleValid = false;
         }
@@ -167,11 +169,11 @@ function UpdateEmployee(emp) {
         let NICValid = true; //setting flag
 
 
-        if (nic.trim().length > 12) {
+        if (nic.length > 12) {
 
             NICErr.InValidNIC = " Invalid NIC Number"; // error msg
             NICValid = false;
-        } else if (nic.trim().length < 10) {
+        } else if (nic.length < 10) {
             NICErr.InValidNIC = " Invalid NIC Number"; // error msg
             NICValid = false;
         }
@@ -287,7 +289,7 @@ function UpdateEmployee(emp) {
                                         className="form-control "
                                         placeholder="Last name"
                                         value={lName}
-                                        disabled
+                                        // disabled
                                     />
                                 </div>
                             </div>
@@ -366,6 +368,7 @@ function UpdateEmployee(emp) {
                                             validateNIC(e);
                                         }}
                                         value={nic}
+                                        disabled
                                     />
                                     <div className={`message ${isNICValid ? 'success' : 'error'}`}>
                                         {NICmessage}
@@ -396,7 +399,7 @@ function UpdateEmployee(emp) {
                             </div>
 
                             <div className="row">
-                                <div className="form-group col-md-6">
+                                <div className="form-group col-md-12">
                                     <label className="form-label" for="CurrAdd">Current address:</label>
                                     <input
                                         required
@@ -451,7 +454,7 @@ function UpdateEmployee(emp) {
 
                                 </div>
                                 <div className="form-group col-md-6">
-                                    <label className="form-label" for="homeContact">Emergency contact number:</label>
+                                    <label className="form-label" for="homeContact">Home contact number:</label>
                                     <input
                                         required
                                         id="homeContact"
