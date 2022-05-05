@@ -1,10 +1,19 @@
 import { React, useState } from "react";
 import Header from "../../components/Header";
 
+import DatePicker from 'react-datetime';
+import moment from 'moment';
+import 'react-datetime/css/react-datetime.css';
+
 
 import { createReservation } from "../../services/ReservationService";
 
 function AddReservation() {
+
+    const yesterday = moment().subtract(1, 'day');
+const disablePastDt = current => {
+  return current.isAfter(yesterday);
+}
 
     const [reservationID, setReservationID] = useState();
     const [customerName , setCustomerName ] = useState("");
@@ -121,15 +130,29 @@ function AddReservation() {
                                  <hr></hr>
                                 </div>
                         
-                                    <div class="form-group-input">
+                                    {/* <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
                                         <input type="date" class="form-control" id="inputFrom4" placeholder="2020-01-01"
                                         onChange={(e) => {setFrom(e.target.value)}}/>
-                                    </div>
+                                    </div> */}
                                     <div class="form-group-input">
+                                        <label for="inputFrom4">From</label>
+            
+                                        <DatePicker type="date" class="form-control" id="inputFrom4" dateFormat="DD-MM-YYYY"
+                                                timeFormat={false} isValidDate={disablePastDt} placeholder="2020-01-01"
+                                        onChange={(e) => {setFrom(e)}}/>
+                                    </div>
+                                    {/* <div class="form-group-input">
                                         <label for="inputTo4">To</label>
                                         <input type="date" class="form-control" id="inputTo4" placeholder=""
                                         onChange={(e) => {setTo(e.target.value)}}/>
+                                    </div> */}
+                                    <div class="form-group-input">
+                                        <label for="inputTo4">To</label>
+                                        <DatePicker type="date" class="form-control" id="inputFrom4" dateFormat="DD-MM-YYYY"
+                                                timeFormat={false} isValidDate={disablePastDt} placeholder="2020-01-01"
+                                        onChange={(e) => {setTo(e)}}/>
+                                        
                                     </div>
                                 </div>
 
