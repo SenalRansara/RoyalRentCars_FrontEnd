@@ -1,9 +1,19 @@
 import React,{useState,useEffect}from "react";
 import { Modal } from "react-bootstrap";
 
+import DatePicker from 'react-datetime';
+import moment from 'moment';
+import 'react-datetime/css/react-datetime.css';
+
 import{updateReservation} from "../../../services/ReservationService";
 
 function UpdateReservation(props) {
+
+    // disable past dates
+    const yesterday = moment().subtract(1, 'day');
+    const disablePastDt = current => {
+    return current.isAfter(yesterday);
+}
 
     console.log("uf",props);
     useEffect(()=>{
@@ -77,7 +87,7 @@ function UpdateReservation(props) {
     return (
         <div>
             <Modal.Header closeButton>
-                <Modal.Title>Update a Reservation</Modal.Title>
+                <Modal.Title>Update Reservation : {props.data.reservationID}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
@@ -130,7 +140,7 @@ function UpdateReservation(props) {
                                  <hr></hr>
                                 </div>
                         
-                                    <div class="form-group-input">
+                                    {/* <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
                                         <input type="date" class="form-control" id="inputFrom4" value={from}
                                         onChange={(e) => {setFrom(e.target.value)}}/>
@@ -139,6 +149,34 @@ function UpdateReservation(props) {
                                         <label for="inputTo4">To</label>
                                         <input type="date" class="form-control" id="inputTo4" value={to}
                                         onChange={(e) => {setTo(e.target.value)}}/>
+                                    </div> */}
+
+                                    <div class="form-group-input">
+                                        <label for="inputFrom4">From</label>
+            
+                                        <DatePicker 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="inputFrom4" 
+                                        value={from} 
+                                        dateFormat="DD-MM-YYYY"
+                                        timeFormat={false} 
+                                        isValidDate={disablePastDt} 
+                                        onChange={(e) => {setFrom(e)}}/>
+                                    </div>
+                                    
+                                    <div class="form-group-input">
+                                        <label for="inputTo4">To</label>
+                                        <DatePicker 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="inputFrom4" 
+                                        value={to} 
+                                        dateFormat="DD-MM-YYYY"  
+                                        timeFormat={false} 
+                                        isValidDate={disablePastDt} 
+                                        onChange={(e) => {setTo(e)}}/>
+                                        
                                     </div>
                                 </div>
 
