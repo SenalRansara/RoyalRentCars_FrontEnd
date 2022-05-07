@@ -36,9 +36,9 @@ export const getAllVehicle = async () => {
 };
 
 //calling update operation
-export const updateVehicle= async (id,Payload) => {
+export const updateVehicle= async (VId,Payload) => {
     try {
-    await axios.put(`${HOST}/updateVehicle/${id}`,Payload);
+    await axios.put(`${HOST}/updateVehicle/${VId}`,Payload);
     return {
         ok: true,
     };
@@ -50,9 +50,9 @@ export const updateVehicle= async (id,Payload) => {
 };
 
 //calling delete operation
-export const deleteVehicle= async (id) => {
+export const deleteVehicle= async (VId) => {
     try {
-        await axios.post(`${HOST}/deleteVehicle/${id}`);
+        await axios.delete(`${HOST}/deleteVehicle/${VId}`);
     return {
         ok: true,
     };

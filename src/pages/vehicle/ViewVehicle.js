@@ -32,12 +32,11 @@ useEffect(() => {
 
 //Delete method implementation
 
-  function onDelete(data) {
-    const id = data.id;
+function onDelete(data) {
+    const VId = data.VId;
     let text = "Are you sure want to delete the vehicle?";
-    // console.log("kaveen", data);
         if (window.confirm(text) == true) {
-            deleteVehicle(id).then((res)=>{
+            deleteVehicle(VId).then((res)=>{
                 if(res.ok){
                     alert("Vehicle Deleted Successfully");
                     window.location.reload();
@@ -45,9 +44,10 @@ useEffect(() => {
                     alert("Something Went Wrong");
                 }
             });
-        } else {
+        } 
+        else {
             window.location.reload();
-}
+        }
 };
 
  //adding components to the page body
@@ -88,7 +88,7 @@ useEffect(() => {
             {
                 icon: () => <button className="btn btn-sm btn-danger">Delete</button>,
                 onClick: (event, rowData) => {
-                    console.log("testing",rowData);
+                    // console.log("testing",rowData);
                     onDelete(rowData);
                 },
                 },
