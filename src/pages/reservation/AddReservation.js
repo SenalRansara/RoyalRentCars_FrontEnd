@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import Header from "../../components/Header";
 
+//import Swal from 'sweetalert2';
+
 import DatePicker from 'react-datetime';
 import moment from 'moment';
 import 'react-datetime/css/react-datetime.css';
@@ -10,9 +12,11 @@ import { createReservation } from "../../services/ReservationService";
 
 function AddReservation() {
 
+    
+// disable past dates
     const yesterday = moment().subtract(1, 'day');
-const disablePastDt = current => {
-  return current.isAfter(yesterday);
+    const disablePastDt = current => {
+    return current.isAfter(yesterday);
 }
 
     const [reservationID, setReservationID] = useState();
@@ -30,10 +34,8 @@ const disablePastDt = current => {
     const [deposit , setDeposit ] = useState("");
     const [advancedPayment , setAdvancedPayment ] = useState("");
     const [totalReservation , setTotalReservation ] = useState("");
-    
-    
-    
-    
+
+   
     
 
     function sendData(e){
@@ -66,6 +68,48 @@ const disablePastDt = current => {
             }
         }) 
     }
+
+   
+
+
+const [isNICValid, setNICIsValid] = useState(false);
+    const [NICmessage, setNICMessage] = useState('');
+
+    const NICRegex1 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;
+    const NICRegex2 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+
+    const validateNIC = (event) => {
+        const NIC = event.target.value;
+        if (NICRegex1.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Matching the required Type!');
+        } else if (NICRegex2.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Matching the required Type!');
+        } else {
+            setNICIsValid(false);
+            setNICMessage('Please enter a valid NIC Number!');
+        }
+    };
+
+const [isValid, setIsValid] = useState(false);
+    const [message, setMessage] = useState('');
+
+    const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+    const validateEmail = (event) => {
+        const email = event.target.value;
+        if (emailRegex.test(email)) {
+            setIsValid(true);
+            setMessage('Matching the required Type!');
+        } else {
+            setIsValid(false);
+            setMessage('Please enter a valid email!');
+        }
+    };
+
+   
+
 
     return (
         <>
@@ -106,21 +150,45 @@ const disablePastDt = current => {
                                     onChange={(e) => {setAddress(e.target.value)}}/>
                                 </div>
 
-                                <div class="form-group-input-long">
+                                {/* <div class="form-group-input-long">
                                     <label for="inputEmailAddress">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com"  title="Enter Email in Proper format"
+                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com" pattern="/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/" title="Enter Email in Proper fomat"
                                     onChange={(e) => {setEmail(e.target.value)}}/>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="must be a 10 digit number"
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="Enter Contact Number in Proper Fomat"
                                         onChange={(e) => {setContactNumber(e.target.value)}}/>
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">NIC Number</label>
-                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V"
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V" pattern="/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/m" title="Enter NIC in Proper Fomat"
                                         onChange={(e) => {setnic(e.target.value)}}/>
+                                    </div>
+                                </div> */}
+
+                                <div class="form-group-input-long">
+                                    <label for="inputEmailAddress">Email</label>
+                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com" 
+                                    onChange={(e) => {setEmail(e.target.value); validateEmail(e)}}/>
+                                    <div className={`message ${isValid ? 'success' : 'error'}`}>
+                                            {message}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group-input">
+                                        <label for="inputTelephoneNumber4">Telephone Number</label>
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="Enter Contact Number in Proper Fomat"
+                                        onChange={(e) => {setContactNumber(e.target.value)}}/>
+                                    </div>
+                                    <div class="form-group-input">
+                                        <label for="inputIdentityNumber4">NIC Number</label>
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V" 
+                                        onChange={(e) => {setnic(e.target.value); validateNIC(e)}}/>
+                                        <div className={`message ${isNICValid ? 'success' : 'error'}`} >
+                                            {NICmessage}
+                                        </div> 
                                     </div>
                                 </div>
 
@@ -137,9 +205,14 @@ const disablePastDt = current => {
                                     </div> */}
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
-            
-                                        <DatePicker type="date" class="form-control" id="inputFrom4" dateFormat="DD-MM-YYYY"
-                                                timeFormat={false} isValidDate={disablePastDt} placeholder="2020-01-01"
+                                        <DatePicker 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="inputFrom4" 
+                                        dateFormat="DD-MM-YYYY"
+                                        timeFormat={false} 
+                                        isValidDate={disablePastDt} 
+                                        placeholder="2020-01-01"
                                         onChange={(e) => {setFrom(e)}}/>
                                     </div>
                                     {/* <div class="form-group-input">
@@ -149,8 +222,14 @@ const disablePastDt = current => {
                                     </div> */}
                                     <div class="form-group-input">
                                         <label for="inputTo4">To</label>
-                                        <DatePicker type="date" class="form-control" id="inputFrom4" dateFormat="DD-MM-YYYY"
-                                                timeFormat={false} isValidDate={disablePastDt} placeholder="2020-01-01"
+                                        <DatePicker 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="inputFrom4" 
+                                        dateFormat="DD-MM-YYYY"
+                                        timeFormat={false} 
+                                        isValidDate={disablePastDt} 
+                                        placeholder="2020-01-01"
                                         onChange={(e) => {setTo(e)}}/>
                                         
                                     </div>
