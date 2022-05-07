@@ -181,16 +181,6 @@ const [isValid, setIsValid] = useState(false);
                                  <hr></hr>
                                 </div>
                         
-                                    {/* <div class="form-group-input">
-                                        <label for="inputFrom4">From</label>
-                                        <input type="date" class="form-control" id="inputFrom4" value={from}
-                                        onChange={(e) => {setFrom(e.target.value)}}/>
-                                    </div>
-                                    <div class="form-group-input">
-                                        <label for="inputTo4">To</label>
-                                        <input type="date" class="form-control" id="inputTo4" value={to}
-                                        onChange={(e) => {setTo(e.target.value)}}/>
-                                    </div> */}
 
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
@@ -199,9 +189,8 @@ const [isValid, setIsValid] = useState(false);
                                         type="date"
                                         class="form-control" 
                                         id="inputFrom4" 
-                                        // value={from} 
-                                        // dateFormat="DD-MM-YYYY"
-                                        value={moment(from).format("MM-DD-YYYY")}
+                                        value={new Date(from)} 
+                                        dateFormat="DD-MM-YYYY"
                                         timeFormat={false} 
                                         isValidDate={disablePastDt} 
                                         onChange={(e) => {setFrom(e)}}/>
@@ -213,9 +202,8 @@ const [isValid, setIsValid] = useState(false);
                                         type="date" 
                                         class="form-control" 
                                         id="inputFrom4" 
-                                        // value={to} 
-                                        // dateFormat="DD-MM-YYYY"  
-                                        value={moment(to).format("MM-DD-YYYY")}
+                                        value={new Date(to)} 
+                                        dateFormat="DD-MM-YYYY"
                                         timeFormat={false} 
                                         isValidDate={disablePastDt} 
                                         onChange={(e) => {setTo(e)}}/>
@@ -228,30 +216,19 @@ const [isValid, setIsValid] = useState(false);
                                     <div class="form-group-input">
                                         <label for="inputVehicleType">Vehicle Type</label>
                                         <select id="inputVehicleType" class="form-control" value={vehicleType} onChange={(e) => {setVehicleType(e.target.value)}}>
-                                            {/* <option selected>Choose...</option> */}
-                                            <option>Car</option>
-                                            <option>Bus</option>
-                                            <option>Van</option>
-                                            <option>Car + Van</option>
-                                            <option>Jeep</option>
+                                            
+                                            <option id="car">Car</option>
+                                            <option id="bus">Bus</option>
+                                            <option id="van">Van</option>
+                                            <option id="cv">Car + Van</option>
+                                            <option id="jeep">Jeep</option>
                                         </select>
                                     </div>
+                                    
                                     <div class="form-group-input">
                                         <label for="numberOfVehivles">Number Of Vehivles</label>
-                                        <select id="numberOfVehivles" class="form-control" value={numberOfVehivles} onChange={(e) => {setNumberOfVehivles(e.target.value)}}>
-                                            {/* <option selected>Choose...</option> */}
-                                            <option>01</option>
-                                            <option>02</option>
-                                            <option>03</option>
-                                            <option>04</option>
-                                            <option>05</option>
-                                            <option>06</option>
-                                            <option>07</option>
-                                            <option>08</option>
-                                            <option>09</option>
-                                            <option>10</option>
-                                            
-                                        </select>
+                                        <input type="numberOfVehivles" class="form-control" id="numberOfVehivles" value={numberOfVehivles}
+                                        onChange={(e) => {setNumberOfVehivles(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input-long">
