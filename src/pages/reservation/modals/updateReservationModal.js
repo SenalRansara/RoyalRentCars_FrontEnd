@@ -82,6 +82,41 @@ function UpdateReservation(props) {
         }) 
     }
 
+    const [isNICValid, setNICIsValid] = useState(false);
+    const [NICmessage, setNICMessage] = useState('');
+
+    const NICRegex1 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;
+    const NICRegex2 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+
+    const validateNIC = (event) => {
+        const NIC = event.target.value;
+        if (NICRegex1.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Matching the required Type!');
+        } else if (NICRegex2.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Matching the required Type!');
+        } else {
+            setNICIsValid(false);
+            setNICMessage('Please enter a valid NIC Number!');
+        }
+    };
+
+const [isValid, setIsValid] = useState(false);
+    const [message, setMessage] = useState('');
+
+    const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+    const validateEmail = (event) => {
+        const email = event.target.value;
+        if (emailRegex.test(email)) {
+            setIsValid(true);
+            setMessage('Matching the required Type!');
+        } else {
+            setIsValid(false);
+            setMessage('Please enter a valid email!');
+        }
+    };
 
 
     return (
@@ -119,7 +154,10 @@ function UpdateReservation(props) {
                                 <div class="form-group-input-long">
                                     <label for="inputEmailAddress">Email</label>
                                     <input type="text" class="form-control" id="inputEmailAddress" value={email}  title="Enter Email in Proper format"
-                                    onChange={(e) => {setEmail(e.target.value)}}/>
+                                    onChange={(e) => {setEmail(e.target.value); validateEmail(e)}}/>
+                                    <div className={`message ${isValid ? 'success' : 'error'}`}>
+                                            {message}
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group-input">
@@ -130,7 +168,10 @@ function UpdateReservation(props) {
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">NIC Number</label>
                                         <input type="identityNumber" class="form-control" id="inputIdentityNumber4" value={nic}
-                                        onChange={(e) => {setnic(e.target.value)}}/>
+                                        onChange={(e) => {setnic(e.target.value); validateNIC(e)}}/>
+                                        <div className={`message ${isNICValid ? 'success' : 'error'}`} >
+                                            {NICmessage}
+                                        </div> 
                                     </div>
                                 </div>
 
@@ -155,11 +196,12 @@ function UpdateReservation(props) {
                                         <label for="inputFrom4">From</label>
             
                                         <DatePicker 
-                                        type="date" 
+                                        type="date"
                                         class="form-control" 
                                         id="inputFrom4" 
-                                        value={from} 
-                                        dateFormat="DD-MM-YYYY"
+                                        // value={from} 
+                                        // dateFormat="DD-MM-YYYY"
+                                        value={moment(from).format("MM-DD-YYYY")}
                                         timeFormat={false} 
                                         isValidDate={disablePastDt} 
                                         onChange={(e) => {setFrom(e)}}/>
@@ -171,8 +213,9 @@ function UpdateReservation(props) {
                                         type="date" 
                                         class="form-control" 
                                         id="inputFrom4" 
-                                        value={to} 
-                                        dateFormat="DD-MM-YYYY"  
+                                        // value={to} 
+                                        // dateFormat="DD-MM-YYYY"  
+                                        value={moment(to).format("MM-DD-YYYY")}
                                         timeFormat={false} 
                                         isValidDate={disablePastDt} 
                                         onChange={(e) => {setTo(e)}}/>
@@ -185,7 +228,7 @@ function UpdateReservation(props) {
                                     <div class="form-group-input">
                                         <label for="inputVehicleType">Vehicle Type</label>
                                         <select id="inputVehicleType" class="form-control" value={vehicleType} onChange={(e) => {setVehicleType(e.target.value)}}>
-                                            <option selected>Choose...</option>
+                                            {/* <option selected>Choose...</option> */}
                                             <option>Car</option>
                                             <option>Bus</option>
                                             <option>Van</option>
@@ -196,7 +239,7 @@ function UpdateReservation(props) {
                                     <div class="form-group-input">
                                         <label for="numberOfVehivles">Number Of Vehivles</label>
                                         <select id="numberOfVehivles" class="form-control" value={numberOfVehivles} onChange={(e) => {setNumberOfVehivles(e.target.value)}}>
-                                            <option selected>Choose...</option>
+                                            {/* <option selected>Choose...</option> */}
                                             <option>01</option>
                                             <option>02</option>
                                             <option>03</option>
