@@ -150,23 +150,7 @@ const [isValid, setIsValid] = useState(false);
                                     onChange={(e) => {setAddress(e.target.value)}}/>
                                 </div>
 
-                                {/* <div class="form-group-input-long">
-                                    <label for="inputEmailAddress">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com" pattern="/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/" title="Enter Email in Proper fomat"
-                                    onChange={(e) => {setEmail(e.target.value)}}/>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group-input">
-                                        <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="Enter Contact Number in Proper Fomat"
-                                        onChange={(e) => {setContactNumber(e.target.value)}}/>
-                                    </div>
-                                    <div class="form-group-input">
-                                        <label for="inputIdentityNumber4">NIC Number</label>
-                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V" pattern="/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/m" title="Enter NIC in Proper Fomat"
-                                        onChange={(e) => {setnic(e.target.value)}}/>
-                                    </div>
-                                </div> */}
+                
 
                                 <div class="form-group-input-long">
                                     <label for="inputEmailAddress">Email</label>
@@ -198,11 +182,7 @@ const [isValid, setIsValid] = useState(false);
                                  <hr></hr>
                                 </div>
                         
-                                    {/* <div class="form-group-input">
-                                        <label for="inputFrom4">From</label>
-                                        <input type="date" class="form-control" id="inputFrom4" placeholder="2020-01-01"
-                                        onChange={(e) => {setFrom(e.target.value)}}/>
-                                    </div> */}
+                                   
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
                                         <DatePicker 
@@ -215,11 +195,7 @@ const [isValid, setIsValid] = useState(false);
                                         placeholder="2020-01-01"
                                         onChange={(e) => {setFrom(e)}}/>
                                     </div>
-                                    {/* <div class="form-group-input">
-                                        <label for="inputTo4">To</label>
-                                        <input type="date" class="form-control" id="inputTo4" placeholder=""
-                                        onChange={(e) => {setTo(e.target.value)}}/>
-                                    </div> */}
+                                    
                                     <div class="form-group-input">
                                         <label for="inputTo4">To</label>
                                         <DatePicker 
@@ -241,29 +217,18 @@ const [isValid, setIsValid] = useState(false);
                                         <label for="inputVehicleType">Vehicle Type</label>
                                         <select id="inputVehicleType" class="form-control" onChange={(e) => {setVehicleType(e.target.value)}}>
                                             <option selected>Choose...</option>
-                                            <option>Car</option>
-                                            <option>Bus</option>
-                                            <option>Van</option>
-                                            <option>Car + Van</option>
-                                            <option>Jeep</option>
+                                            <option id="car">Car</option>
+                                            <option id="bus">Bus</option>
+                                            <option id="van">Van</option>
+                                            <option id="cv">Car + Van</option>
+                                            <option id="jeep">Jeep</option>
                                         </select>
                                     </div>
+
                                     <div class="form-group-input">
                                         <label for="numberOfVehivles">Number Of Vehivles</label>
-                                        <select id="numberOfVehivles" class="form-control" onChange={(e) => {setNumberOfVehivles(e.target.value)}}>
-                                            <option selected>Choose...</option>
-                                            <option>01</option>
-                                            <option>02</option>
-                                            <option>03</option>
-                                            <option>04</option>
-                                            <option>05</option>
-                                            <option>06</option>
-                                            <option>07</option>
-                                            <option>08</option>
-                                            <option>09</option>
-                                            <option>10</option>
-                                            
-                                        </select>
+                                        <input type="numberOfVehivles" class="form-control" id="numberOfVehivles" placeholder="1"
+                                        onChange={(e) => {setNumberOfVehivles(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input-long">
