@@ -103,7 +103,7 @@ function UpdateRental(props) {
     return (
         <div>
             <Modal.Header closeButton>
-                <Modal.Title>Update aarental</Modal.Title>
+                <Modal.Title>Update Rental</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <div className="row">
@@ -143,7 +143,7 @@ function UpdateRental(props) {
                             </select>
                         </div>
                     </div>
-                    <div class="form-group-input-long">
+                    <div class="form-group-input-long6">
                         <label for="inputAddress">Pick Up Address :</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Kandy Road,Kaduwela"
                         value={pickAddress} onChange={(e) => {setPickAddress(e.target.value)}}/>
@@ -170,12 +170,12 @@ function UpdateRental(props) {
                         <h6 className="text-left mt-4 mb-25" id="sub-heading">Customer Details</h6>
                         <hr></hr>
                     </div>
-                    <div class="form-group-input-long">
+                    <div class="form-group-input-long6">
                         <label for="inputFullName">Full Name :</label>
                         <input type="text" class="form-control" id="inputFullName" placeholder="Ex:-John Snow"
                         value={customerName} onChange={(e) => {setCustomerName(e.target.value)}}/>
                     </div>
-                    <div class="form-group-input-long">
+                    <div class="form-group-input-long6">
                         <label for="inputAddress">Address :</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="No.123,Pittugala,Malabe"
                         value={customerAddress} onChange={(e) => {setCustomerAddress(e.target.value)}}/>
