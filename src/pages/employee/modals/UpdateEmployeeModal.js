@@ -37,7 +37,6 @@ function UpdateEmployee(emp) {
         }
     }, [emp.data]);
 
-
     const [empId, setEmpId] = useState("");
     const [fName, setfName] = useState("");
     const [lName, setlName] = useState("");
@@ -107,12 +106,10 @@ function UpdateEmployee(emp) {
                         icon: 'error',
                         showConfirmButton: false,
                         timer: 1500
-                    }
-                    )
+                    })
                 }
             });
         }
-
     }
 
     //validate function
@@ -132,10 +129,8 @@ function UpdateEmployee(emp) {
             teleValid = false;
         }
 
-
         setTeleNoErr(TeleErr);//update error objects
         return teleValid;
-
 
     }
 
@@ -155,10 +150,8 @@ function UpdateEmployee(emp) {
             HometeleValid = false;
         }
 
-
         setHomeTeleNoErr(HomeTeleErr);//update error objects
         return HometeleValid;
-
 
     }
 
@@ -167,7 +160,6 @@ function UpdateEmployee(emp) {
 
         const NICErr = {}; //State
         let NICValid = true; //setting flag
-
 
         if (nic.length > 12) {
 
@@ -178,10 +170,8 @@ function UpdateEmployee(emp) {
             NICValid = false;
         }
 
-
         setNICErr(NICErr);//update error objects
         return NICValid;
-
 
     }
 
@@ -200,7 +190,6 @@ function UpdateEmployee(emp) {
             setMessage('Please enter a valid email!');
         }
     };
-
 
     const [isNICValid, setNICIsValid] = useState(false);
     const [NICmessage, setNICMessage] = useState('');
@@ -221,7 +210,6 @@ function UpdateEmployee(emp) {
             setNICMessage('Please enter a valid NIC Number!');
         }
     };
-
 
     const [isMobileNoValid, setMobileNoValid] = useState(false);
     const [MobileNoMessage, setMobileMessage] = useState('');
@@ -378,7 +366,6 @@ function UpdateEmployee(emp) {
                                         // return <div style={{ color: "red" }}>{NICErr[key]}</div>
                                     })}
 
-
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label className="form-label-emp" for="designation">Designation:</label>
@@ -413,20 +400,6 @@ function UpdateEmployee(emp) {
                                         }}
                                     />
                                 </div>
-                                {/* <div className="form-group col-md-6">
-                                    <label className="form-label" for="PermAdd">Permanant address:</label>
-                                    <input
-                                        required
-                                        id="permAdd"
-                                        type="text"
-                                        className="form-control "
-                                        placeholder="Permanant address"
-                                        value={permAdd}
-                                        onChange={(e) => {
-                                            setPermAdd(e.target.value);
-                                        }}
-                                    />
-                                </div> */}
                             </div>
 
                             <div className="row">
@@ -504,11 +477,6 @@ function UpdateEmployee(emp) {
                                                 setCV(e.target.value);
                                             }}
                                         />
-                                        {/* <FilePond
-                                                    files={cv}
-                                                    onupdatefiles={setCV}
-                                                    labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-                                                /> */}
                                     </div>
                                 </div>
                             </div>

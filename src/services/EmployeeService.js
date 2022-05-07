@@ -21,16 +21,15 @@ export const addEmployeeService = async (employeePayload) => {
 // for retrive the all employee records
 export const getAllEmployeesService = async () => {
   try {
-  const response = await axios.get(`${HOST}/employee`);
-  console.log("Success",response);
-  return {
+    const response = await axios.get(`${HOST}/employee`);
+    return {
       ok: true,
       data: response.data.data
   };
   } catch (error) {
-  return {
+    return {
       ok: false,
-  };
+    };
   }
 };
 
@@ -41,11 +40,11 @@ export const updateEmployee = async (empId, employeePayload) => {
     await axios.put(`${HOST}/employee/update/${empId}`, employeePayload);
     return {
       ok: true,
-  };
+    };
   } catch (error) {
-      return {
-        ok: false, err: error.response.data.status
-      };
+    return {
+      ok: false, err: error.response.data.status
+    };
   }
 };
 

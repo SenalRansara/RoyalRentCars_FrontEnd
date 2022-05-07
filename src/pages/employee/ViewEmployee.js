@@ -17,7 +17,6 @@ const [updateData, setUpdateData] = useState();
 //creting a method for retrieve data
 useEffect(() => {
     getAllEmployeesService().then((res)=>{
-        console.log("response", res);
         if(res.ok){
             setEmp(res.data);
         }
@@ -43,7 +42,7 @@ function onDelete(data) {
             });
         } else {
             window.location.reload();
-}
+        }
 };
 
 
@@ -86,7 +85,7 @@ function onDelete(data) {
                     onClick: (event, rowData) => {
                         onDelete(rowData);
                     },
-                    },
+                },
             ]}
             columns={[
                 { title: "Name", field: "employeeName", render: (emp) => emp.fName + " " + emp.lName, type: "string" },

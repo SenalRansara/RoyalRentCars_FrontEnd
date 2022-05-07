@@ -35,7 +35,6 @@ function AddEmployee() {
     const [HomeTeleErr, setHomeTeleNoErr] = useState("");
     const [NICErr, setNICErr] = useState("");
 
-
     function sendData(e) {
         e.preventDefault();
 
@@ -76,8 +75,8 @@ function AddEmployee() {
                     }
                     ).then(() => {
                         window.location.reload();
+                        window.location.replace("/AllEmployee");
                     })
-
                 }
                 else {
                     Swal.fire({
@@ -86,12 +85,10 @@ function AddEmployee() {
                         icon: 'error',
                         showConfirmButton: false,
                         timer: 1500
-                    }
-                    )
+                    })
                 }
             });
         }
-
     }
 
     //validate function
@@ -99,7 +96,6 @@ function AddEmployee() {
 
         const TeleErr = {}; //State
         let teleValid = true; //setting flag
-
 
         if (mobileNo.trim().length > 10) {
 
@@ -110,10 +106,8 @@ function AddEmployee() {
             teleValid = false;
         }
 
-
         setTeleNoErr(TeleErr);//update error objects
         return teleValid;
-
 
     }
 
@@ -122,7 +116,6 @@ function AddEmployee() {
 
         const HomeTeleErr = {}; //State
         let HometeleValid = true; //setting flag
-
 
         if (homeContact.trim().length > 10) {
 
@@ -133,10 +126,8 @@ function AddEmployee() {
             HometeleValid = false;
         }
 
-
         setHomeTeleNoErr(HomeTeleErr);//update error objects
         return HometeleValid;
-
 
     }
 
@@ -146,9 +137,7 @@ function AddEmployee() {
         const NICErr = {}; //State
         let NICValid = true; //setting flag
 
-
         if (nic.trim().length > 12) {
-
             NICErr.InValidNIC = " Invalid NIC Number"; // error msg
             NICValid = false;
         } else if (nic.trim().length < 10) {
@@ -156,10 +145,8 @@ function AddEmployee() {
             NICValid = false;
         }
 
-
         setNICErr(NICErr);//update error objects
         return NICValid;
-
 
     }
 
@@ -178,7 +165,6 @@ function AddEmployee() {
             setMessage('Please enter a valid email!');
         }
     };
-
 
     const [isNICValid, setNICIsValid] = useState(false);
     const [NICmessage, setNICMessage] = useState('');
@@ -199,7 +185,6 @@ function AddEmployee() {
             setNICMessage('Please enter a valid NIC Number!');
         }
     };
-
 
     const [isMobileNoValid, setMobileNoValid] = useState(false);
     const [MobileNoMessage, setMobileMessage] = useState('');
@@ -233,9 +218,8 @@ function AddEmployee() {
         }
     };
 
-
     return (
-<>
+        <>
         <Header/>
         <div className="col-md-20 d-none d-md-flex emp-bg-image">
         <div className="page-component-body">
@@ -406,19 +390,6 @@ function AddEmployee() {
                                                 }}
                                             />
                                         </div>
-                                        {/* <div className="form-group col-md-6">
-                                            <label className="form-label" for="PermAdd">Permanant address:</label>
-                                            <input
-                                                required
-                                                id="permAdd"
-                                                type="text"
-                                                className="form-control "
-                                                placeholder="Permanant address"
-                                                onChange={(e) => {
-                                                    setPermAdd(e.target.value);
-                                                }}
-                                            />
-                                        </div> */}
                                     </div>
 
                                     <div className="row">
@@ -505,9 +476,11 @@ function AddEmployee() {
                                     </div>
                                     <div className="row mb-4">
                                         <div className="col py-3 text-center">
+                                           
                                             <button type="submit" className="btn btn-ok btn-success">
                                                 Submit
                                             </button>
+                                    
                                         </div>
                                         <div className="col py-3 text-center">
                                             <button type="reset" className="btn btn-reset btn-warning">

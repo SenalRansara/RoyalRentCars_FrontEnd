@@ -15,35 +15,37 @@ function Login() {
     const [login, setLogin] = useState([]);
 
 
-    function checkUser(e) {//function checks the availbilty of the admin within the system
+    function checkUser(e) {//This function checks the availbilty of the Admin users within the system
         e.preventDefault();
-            if (username == "" || password == "") {
+        //Pass the username and password and if exact user exsits will be directed to dashbord else it will display error for unavailable user
+        axios.get(`http://localhost:8000/login/get/${username}/${password}`).then((response) => {
+            setLogin(response.data.login);
+            if (response.data.login === null) {
                 Swal.fire({
                     title: 'Oops!',
-                    text: 'Please fill all the required fields!',
+                    text: 'No Such User Available!',
                     icon: 'error',
                     showConfirmButton: false,
                     timer: 1500
-                }
-                )
+                })
 
             } else {
                 Swal.fire({
                     title: 'Sucess!',
-                    text: 'Welcome Back Admin',
+                    text: 'Welcome Back Admin!',
                     icon: 'success',
                     showConfirmButton: false,
                     timer: 1500
-                }
-                )
-
+                })
+                if (response.data.status=='User fetched') {
                     history.push("/Dashboard");
-                
+                }
             }
-        
+        }).catch((err) => {
+            alert(err.response.data.error)
+
+        })
     }
-
-
 
     return (
         <>
