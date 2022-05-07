@@ -377,9 +377,11 @@ function UpdateEmployee(emp) {
                                         }}
                                         value={designation}
                                     >
-                                        <option id="rental sales agent">Rental Sales Agent</option>
+                                        <option id="manager">Manager</option>
+                                        <option id="assistant manager">Assistant Manager</option>
+                                        <option id="accountant">Accountant</option>
                                         <option id="driver">Driver</option>
-                                        <option id="service agent">Service Agent</option>
+                                        <option id="sales officer">Sales Officer</option>
                                         <option id="automotive technician">Automotive Technician</option>
                                     </select>
                                 </div>

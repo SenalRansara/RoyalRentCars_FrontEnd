@@ -355,7 +355,6 @@ function AddEmployee() {
                                                 // return <div style={{ color: "red" }}>{NICErr[key]}</div>
                                             })}
 
-
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label className="form-label-emp" for="designation">Designation:</label>
