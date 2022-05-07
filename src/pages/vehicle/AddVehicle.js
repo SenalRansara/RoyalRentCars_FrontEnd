@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import {useHistory} from "react-router-dom";
+import Swal from 'sweetalert2';
 import Header from "../../components/Header";
 //import moment from 'moment';
 
@@ -20,11 +21,20 @@ function AddVehicle() {
     const [NoOfSeats , setNoOfSeats ] = useState("");
     const [RatePDay , setRatePDay ] = useState("");
     const [YearsRent , setYearsRent ] = useState("");
-
+    const [nic , setNic ] = useState("");
+    const [VehiclePic , setVehiclePic ] = useState("");
+    const [AgPic , setAgPic ] = useState("");
+    const [NICErr, setNICErr] = useState("");
+    
     const history = useHistory();
 
     function sendData(e){
         e.preventDefault()
+
+        const NICValid = NICValidation();
+
+        if (NICValid == true){
+
         const newVehicle = {
 
             VehicleBrand,
@@ -39,19 +49,86 @@ function AddVehicle() {
             NoOfSeats,
             RatePDay,
             YearsRent,
+            nic,
+            VehiclePic,
+            AgPic,
 
-        }
+        };
         
-        
-        createVehicle(newVehicle).then((res)=>{
-            if(res.ok){
-                alert("Vehicle Added Successfully");
-                history.push("/AllVehicle")
-            }else{
-                alert("Something Went Wrong");
+        createVehicle(newVehicle).then((res) => {
+            const message = res.ok
+                ? "Vehicle added Successful!"
+                : res.err;
+
+            if (res.ok) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: `${message}`,
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                }
+                ).then(() => {
+                    window.location.reload();
+                })
+
             }
-        }) 
+            else {
+                Swal.fire({
+                    title: 'Oops!',
+                    text: `${message}`,
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 1500
+                }
+                )
+            }
+        });
     }
+    }
+    //validate function
+    const NICValidation = () => {
+
+        const NICErr = {}; //State
+        let NICValid = true; //setting flag
+
+
+        if (nic.trim().length > 12) {
+
+            NICErr.InValidNIC = " Invalid NIC Number"; // error msg
+            NICValid = false;
+        } else if (nic.trim().length < 10) {
+            NICErr.InValidNIC = " Invalid NIC Number"; // error msg
+            NICValid = false;
+        }
+
+
+        setNICErr(NICErr);//update error objects
+        return NICValid;
+
+
+    }
+
+    const [isNICValid, setNICIsValid] = useState(false);
+    const [NICmessage, setNICMessage] = useState('');
+
+    const NICRegex1 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;
+    const NICRegex2 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+
+    const validateNIC = (event) => {
+        const NIC = event.target.value;
+        if (NICRegex1.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Your NIC looks good!');
+        } else if (NICRegex2.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Your NIC looks good!');
+        } else {
+            setNICIsValid(false);
+            setNICMessage('Please enter a valid NIC Number!');
+        }
+    };
+
 
     return (
         <>
@@ -161,6 +238,29 @@ function AddVehicle() {
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                    <label className="form-label" for="NIC">NIC:</label>
+                                            <input
+                                                required
+                                                id="nic"
+                                                type="text"
+                                                className="form-control "
+                                                placeholder="NIC"
+                                            onChange={(e) => {
+                                                setNic(e.target.value);
+                                                validateNIC(e);
+                                                }}
+                                            />
+                                    <div className={`message ${isNICValid ? 'success' : 'error'}`}>
+                                        {NICmessage}
+                                    </div>
+
+                                    {Object.keys(NICErr).map((key) => {
+                                            })}
+                                    </div>
+                                </div>
+
                                 <div class="form-row">
 
                                     <div class="form-group col-md-6">
@@ -177,28 +277,36 @@ function AddVehicle() {
 
                                 </div>
 
-                                {/* <div className="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleFormControlFile1">Photos of Vehicle</label>
-                                        <input type="file" class="form-control-file pt-3" id="Photos"
-
-                                            onChange={(e) => {
-                                            //setVehiPic(e.target.files[0]);
-                                            }}
-
-                                        />
+                                <div className="row">
+                                    <div className="form-group col-md-6">
+                                        <div className="form-group">
+                                            <label className="form-label-emp pb-3" for="VehiclePic">Vehicle Photo:</label>
+                                            <input
+                                                // required
+                                                id="VehiclePic"
+                                                type="file"
+                                                className="form-control-file"
+                                                onChange={(e) => {
+                                                    setVehiclePic(e.target.value);
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleFormControlFile1">Copy of Agreement</label>
-                                        <input type="file" class="form-control-file pt-3" id="Agreement"
-                                            onChange={(e) => {
-                                            //setVehDoc(e.target.value);
-                                            }}
-
-
-                                        />
+                                    <div className="form-group col-md-6">
+                                        <div className="form-group">
+                                            <label className="form-label-emp pb-3" for="AgPic">Agreement</label>
+                                            <input
+                                                // required
+                                                id="AgPic"
+                                                type="file"
+                                                className="form-control-file fliepond"
+                                                onChange={(e) => {
+                                                    setAgPic(e.target.value);
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-                                </div> */}
+                                </div>
                                 <div className="row mb-3">
                                     <div className="col py-3 text-center">
                                         <button type="submit" class="btn btn-ok btn-success">

@@ -1,10 +1,23 @@
 import { React, useState } from "react";
 import Header from "../../components/Header";
 
+//import Swal from 'sweetalert2';
+
+import DatePicker from 'react-datetime';
+import moment from 'moment';
+import 'react-datetime/css/react-datetime.css';
+
 
 import { createReservation } from "../../services/ReservationService";
 
 function AddReservation() {
+
+    
+// disable past dates
+    const yesterday = moment().subtract(1, 'day');
+    const disablePastDt = current => {
+    return current.isAfter(yesterday);
+}
 
     const [reservationID, setReservationID] = useState();
     const [customerName , setCustomerName ] = useState("");
@@ -21,10 +34,8 @@ function AddReservation() {
     const [deposit , setDeposit ] = useState("");
     const [advancedPayment , setAdvancedPayment ] = useState("");
     const [totalReservation , setTotalReservation ] = useState("");
-    
-    
-    
-    
+
+   
     
 
     function sendData(e){
@@ -57,6 +68,48 @@ function AddReservation() {
             }
         }) 
     }
+
+   
+
+
+const [isNICValid, setNICIsValid] = useState(false);
+    const [NICmessage, setNICMessage] = useState('');
+
+    const NICRegex1 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;
+    const NICRegex2 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+
+    const validateNIC = (event) => {
+        const NIC = event.target.value;
+        if (NICRegex1.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Matching the required Type!');
+        } else if (NICRegex2.test(NIC)) {
+            setNICIsValid(true);
+            setNICMessage('Matching the required Type!');
+        } else {
+            setNICIsValid(false);
+            setNICMessage('Please enter a valid NIC Number!');
+        }
+    };
+
+const [isValid, setIsValid] = useState(false);
+    const [message, setMessage] = useState('');
+
+    const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+    const validateEmail = (event) => {
+        const email = event.target.value;
+        if (emailRegex.test(email)) {
+            setIsValid(true);
+            setMessage('Matching the required Type!');
+        } else {
+            setIsValid(false);
+            setMessage('Please enter a valid email!');
+        }
+    };
+
+   
+
 
     return (
         <>
@@ -97,21 +150,29 @@ function AddReservation() {
                                     onChange={(e) => {setAddress(e.target.value)}}/>
                                 </div>
 
+                
+
                                 <div class="form-group-input-long">
                                     <label for="inputEmailAddress">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com"  title="Enter Email in Proper format"
-                                    onChange={(e) => {setEmail(e.target.value)}}/>
+                                    <input type="text" class="form-control" id="inputEmailAddress" placeholder="kasun1232@gmail.com" 
+                                    onChange={(e) => {setEmail(e.target.value); validateEmail(e)}}/>
+                                    <div className={`message ${isValid ? 'success' : 'error'}`}>
+                                            {message}
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="must be a 10 digit number"
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required placeholder="0711936210" pattern="[0-9]{10}" title="Enter Contact Number in Proper Fomat"
                                         onChange={(e) => {setContactNumber(e.target.value)}}/>
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">NIC Number</label>
-                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V"
-                                        onChange={(e) => {setnic(e.target.value)}}/>
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V" 
+                                        onChange={(e) => {setnic(e.target.value); validateNIC(e)}}/>
+                                        <div className={`message ${isNICValid ? 'success' : 'error'}`} >
+                                            {NICmessage}
+                                        </div> 
                                     </div>
                                 </div>
 
@@ -121,15 +182,32 @@ function AddReservation() {
                                  <hr></hr>
                                 </div>
                         
+                                   
                                     <div class="form-group-input">
                                         <label for="inputFrom4">From</label>
-                                        <input type="date" class="form-control" id="inputFrom4" placeholder="2020-01-01"
-                                        onChange={(e) => {setFrom(e.target.value)}}/>
+                                        <DatePicker 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="inputFrom4" 
+                                        dateFormat="DD-MM-YYYY"
+                                        timeFormat={false} 
+                                        isValidDate={disablePastDt} 
+                                        placeholder="2020-01-01"
+                                        onChange={(e) => {setFrom(e)}}/>
                                     </div>
+                                    
                                     <div class="form-group-input">
                                         <label for="inputTo4">To</label>
-                                        <input type="date" class="form-control" id="inputTo4" placeholder=""
-                                        onChange={(e) => {setTo(e.target.value)}}/>
+                                        <DatePicker 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="inputFrom4" 
+                                        dateFormat="DD-MM-YYYY"
+                                        timeFormat={false} 
+                                        isValidDate={disablePastDt} 
+                                        placeholder="2020-01-01"
+                                        onChange={(e) => {setTo(e)}}/>
+                                        
                                     </div>
                                 </div>
 
@@ -139,29 +217,18 @@ function AddReservation() {
                                         <label for="inputVehicleType">Vehicle Type</label>
                                         <select id="inputVehicleType" class="form-control" onChange={(e) => {setVehicleType(e.target.value)}}>
                                             <option selected>Choose...</option>
-                                            <option>Car</option>
-                                            <option>Bus</option>
-                                            <option>Van</option>
-                                            <option>Car + Van</option>
-                                            <option>Jeep</option>
+                                            <option id="car">Car</option>
+                                            <option id="bus">Bus</option>
+                                            <option id="van">Van</option>
+                                            <option id="cv">Car + Van</option>
+                                            <option id="jeep">Jeep</option>
                                         </select>
                                     </div>
+
                                     <div class="form-group-input">
                                         <label for="numberOfVehivles">Number Of Vehivles</label>
-                                        <select id="numberOfVehivles" class="form-control" onChange={(e) => {setNumberOfVehivles(e.target.value)}}>
-                                            <option selected>Choose...</option>
-                                            <option>01</option>
-                                            <option>02</option>
-                                            <option>03</option>
-                                            <option>04</option>
-                                            <option>05</option>
-                                            <option>06</option>
-                                            <option>07</option>
-                                            <option>08</option>
-                                            <option>09</option>
-                                            <option>10</option>
-                                            
-                                        </select>
+                                        <input type="numberOfVehivles" class="form-control" id="numberOfVehivles" placeholder="1"
+                                        onChange={(e) => {setNumberOfVehivles(e.target.value)}}/>
                                     </div>
 
                                     <div class="form-group-input-long">
