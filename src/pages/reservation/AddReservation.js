@@ -1,8 +1,5 @@
 import { React, useState } from "react";
 import Header from "../../components/Header";
-
-//import Swal from 'sweetalert2';
-
 import DatePicker from 'react-datetime';
 import moment from 'moment';
 import 'react-datetime/css/react-datetime.css';
@@ -71,8 +68,8 @@ function AddReservation() {
 
    
 
-
-const [isNICValid, setNICIsValid] = useState(false);
+//Validate NIC
+    const [isNICValid, setNICIsValid] = useState(false);
     const [NICmessage, setNICMessage] = useState('');
 
     const NICRegex1 = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V.v]$/;
@@ -92,7 +89,8 @@ const [isNICValid, setNICIsValid] = useState(false);
         }
     };
 
-const [isValid, setIsValid] = useState(false);
+//Validate Email
+    const [isValid, setIsValid] = useState(false);
     const [message, setMessage] = useState('');
 
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -108,6 +106,7 @@ const [isValid, setIsValid] = useState(false);
         }
     };
 
+//Validate Mobile Number
     const [isMobileNoValid, setMobileNoValid] = useState(false);
     const [MobileNoMessage, setMobileMessage] = useState('');
 
@@ -186,7 +185,7 @@ const [isValid, setIsValid] = useState(false);
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">NIC Number</label>
-                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V" 
+                                        <input type="identityNumber" class="form-control" id="inputIdentityNumber4" placeholder="9355581176V or 200006813531" 
                                         onChange={(e) => {setnic(e.target.value); validateNIC(e)}}/>
                                         <div className={`message ${isNICValid ? 'success' : 'error'}`} >
                                             {NICmessage}
@@ -263,13 +262,7 @@ const [isValid, setIsValid] = useState(false);
 
                                 </div>
 
-                                
-
-
-                            
-
-
-
+     
                                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                                     <h6 className="text-left mt-4 mb-4" id="sub-heading">Payment Details</h6>
                                     <hr></hr>
@@ -297,13 +290,7 @@ const [isValid, setIsValid] = useState(false);
 
                                 </div>
                                 
-                                
-
-
-
-
-
-
+                              
                                 <div className="row mb-3">
                                         <div className="col py-3 text-center">
                                             <button type="submit" className="btn btn-ok btn-success">

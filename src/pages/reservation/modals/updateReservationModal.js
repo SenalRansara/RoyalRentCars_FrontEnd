@@ -1,10 +1,8 @@
 import React,{useState,useEffect}from "react";
 import { Modal } from "react-bootstrap";
-
 import DatePicker from 'react-datetime';
 import moment from 'moment';
 import 'react-datetime/css/react-datetime.css';
-
 import{updateReservation} from "../../../services/ReservationService";
 
 function UpdateReservation(props) {
@@ -71,7 +69,7 @@ function UpdateReservation(props) {
             totalReservation,
         }
 
-        //calling update service
+        //Calling Reservation update service
         updateReservation(props.data.reservationID,Reservations).then((res)=>{
             if(res.ok){
                 alert("Reservation Updated Successfully");
@@ -82,6 +80,7 @@ function UpdateReservation(props) {
         }) 
     }
 
+    //Validate NIC
     const [isNICValid, setNICIsValid] = useState(false);
     const [NICmessage, setNICMessage] = useState('');
 
@@ -102,7 +101,8 @@ function UpdateReservation(props) {
         }
     };
 
-const [isValid, setIsValid] = useState(false);
+    //Validate Email
+    const [isValid, setIsValid] = useState(false);
     const [message, setMessage] = useState('');
 
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -118,6 +118,7 @@ const [isValid, setIsValid] = useState(false);
         }
     };
 
+    //Validate Mobile Number
     const [isMobileNoValid, setMobileNoValid] = useState(false);
     const [MobileNoMessage, setMobileMessage] = useState('');
 

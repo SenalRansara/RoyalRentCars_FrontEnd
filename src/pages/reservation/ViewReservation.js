@@ -3,10 +3,8 @@ import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
 import { getAllReservation,deleteReservation } from "../../services/ReservationService";
 import Header from "../../components/Header";
-
-//import AddReservation from "../modals/addReservationModal";
 import UpdateReservation from "./modals/updateReservationModal";
-//import Header from "../Header";
+
 
 
 export default function ReservationView() {
@@ -19,7 +17,7 @@ const [updateData, setUpdateData] = useState();
 
 
 
- // method for display data
+// Method for Display all Reservations
 useEffect(() => {
     getAllReservation().then((res)=>{
         if(res.ok){
@@ -33,7 +31,7 @@ useEffect(() => {
 }, []);
 
 
-  //Delete method implementation
+// Method for Delete Reservation
   function onDelete(data) {
     const id = data.reservationID;
     let text = "Are you sure want to delete the Reservation?";
@@ -54,12 +52,11 @@ useEffect(() => {
 
   //adding components to the page body
     return (
-    /* side navigtaion bar components*/
     <>
         <Header/>
     <div className="container" id="height">
 
-        {/* implementing the meterial table for display data */}
+        {/* Implementing meterial table for display reservations */}
 
         <div className="AllReservationTable">
         <div style={{ textAlign: "right"}}>
@@ -70,7 +67,7 @@ useEffect(() => {
             style={{ textDecoration: "none", color: "white"}}
             >
             {" "}
-            Add a new Reservation
+            Add New Reservation
             </a>
         </button>
         </div>
