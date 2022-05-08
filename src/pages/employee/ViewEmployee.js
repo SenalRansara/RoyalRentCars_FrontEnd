@@ -51,13 +51,13 @@ function onDelete(data) {
         /* side navigtaion bar components*/
         <>
         <Header/>
-        <div className="container" id="height">
+        <div className="container1" id="height">
     
             {/* implementing the meterial table for display data */}
     
             <div className="AllEmployeeTable">
-            <div style={{ textAlign: "right"}}>
-            <button className="btn btn-success"
+            <div style={{ textAlign: "right", marginRight:52}}>
+            <button className="btn btn-success mr-5" 
                 style={{ marginTop:"50px", marginBottom: "10px" }}>
                 <a
                 href="/AddEmployee"
@@ -68,7 +68,7 @@ function onDelete(data) {
                 </a>
             </button>
             </div>
-            <MaterialTable style={{background:"#E3ECFF"}}
+            <MaterialTable style={{background:"#E3ECFF", marginLeft:100, marginRight:100, marginBottom:50}}
             title="Employee Details"
             actions={[
                 {
@@ -88,7 +88,8 @@ function onDelete(data) {
                 },
             ]}
             columns={[
-                { title: "Name", field: "employeeName", render: (emp) => emp.fName + " " + emp.lName, type: "string" },
+                { title: "First Name", field: "fName", type: "string" },
+                { title: "Last Name", field: "lName", type: "string" },
                 { title: "NIC", field: "nic", type: "string" },
                 { title: "Email", field: "email", type: "string" },
                 { title: "Designation", field: "designation", type: "string" },
