@@ -88,7 +88,7 @@ function onDelete(data) {
             {
                 icon: () => <button className="btn btn-sm btn-danger">Delete</button>,
                 onClick: (event, rowData) => {
-                    // console.log("testing",rowData);
+                   
                     onDelete(rowData);
                 },
                 },
