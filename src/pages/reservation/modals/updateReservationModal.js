@@ -118,6 +118,22 @@ const [isValid, setIsValid] = useState(false);
         }
     };
 
+    const [isMobileNoValid, setMobileNoValid] = useState(false);
+    const [MobileNoMessage, setMobileMessage] = useState('');
+
+    const MobileRegex = /^[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+
+    const validateMobile = (event) => {
+        const MobileNo = event.target.value;
+        if (MobileRegex.test(MobileNo)) {
+            setMobileNoValid(true);
+            setMobileMessage('Matching the required Type!');
+        } else {
+            setMobileNoValid(false);
+            setMobileMessage('Please enter a valid Mobile Number!');
+        }
+    };
+
 
     return (
         <div>
@@ -162,8 +178,11 @@ const [isValid, setIsValid] = useState(false);
                                 <div class="form-row">
                                     <div class="form-group-input">
                                         <label for="inputTelephoneNumber4">Telephone Number</label>
-                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required value={contactNumber} pattern="[0-9]{9}" title="must be a 10 digit number"
-                                        onChange={(e) => {setContactNumber(e.target.value)}}/>
+                                        <input type="telephoneNumber" class="form-control" id="inputTelephoneNumber4" required value={contactNumber} 
+                                        onChange={(e) => {setContactNumber(e.target.value); validateMobile(e)}}/>
+                                        <div className={`message ${isMobileNoValid ? 'success' : 'error'}`}>
+                                                {MobileNoMessage}
+                                            </div>
                                     </div>
                                     <div class="form-group-input">
                                         <label for="inputIdentityNumber4">NIC Number</label>
