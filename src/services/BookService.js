@@ -1,32 +1,30 @@
 import axios from "axios";
 
-const HOST = "http://localhost:8000/api";
-
+const HOST = "http://localhost:8080/api";
 
 //calling the backend of API Methods as services
 
-export const createReservation = async (Payload) => {
+export const createBook = async (Payload) => {
     try {
-        console.log("Payload",Payload)
-    await axios.post(`${HOST}/addReservation`, Payload);
-
+    await axios.post(`${HOST}/book/save`, Payload);
     return {
         ok: true,
     };
     } catch (error) {
     return {
-        ok: false, err: error.response.data.status
+        ok: false, 
+        err: error.response.data.status
     };
     }
 };
 //calling read operation
-export const getAllReservation = async () => {
+export const getAllBook = async () => {
     try {
-    const response = await axios.get(`${HOST}/displayReservation`);
-    console.log("Done",response);
+    const response = await axios.get(`${HOST}/book/get`);
+    //console.log("awaaa",response);
     return {
         ok: true,
-        data: response.data
+        data: response.data.data
     };
     } catch (error) {
     return {
@@ -36,9 +34,9 @@ export const getAllReservation = async () => {
 };
 
 //calling update operation
-export const updateReservation= async (id,Payload) => {
+export const updateBook= async (id,Payload) => {
     try {
-    await axios.put(`${HOST}/updateReservation/${id}`,Payload);
+    await axios.put(`${HOST}/book/update/${id}`,Payload);
     return {
         ok: true,
     };
@@ -50,9 +48,9 @@ export const updateReservation= async (id,Payload) => {
 };
 
 //calling delete operation
-export const deleteReservation= async (id) => {
+export const deleteBook= async (id) => {
     try {
-        await axios.post(`${HOST}/deleteReservation/${id}`);
+        await axios.post(`${HOST}/book/delete/${id}`);
     return {
         ok: true,
     };
