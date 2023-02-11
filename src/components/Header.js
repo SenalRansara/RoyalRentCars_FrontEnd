@@ -1,5 +1,5 @@
 import React from 'react';
-// import Logo from '../assets/Logo.png';
+import Logo from '../assets/Logo.png';
 
 function Header() {
     return (
@@ -7,14 +7,16 @@ function Header() {
             <header>
                 <div className="row">
                     <div className="header-col">
-                        <h1>Online Book Store</h1>
-                        <img className="headerLogo"  width="400px" height="150px" alt="logo" />
+                        <img className="headerLogo" src={Logo} width="400px" height="150px" alt="logo" />
                     </div>
                 </div>
             </header>
             <div class="topnav">
                 <a class="active" href="/Dashboard">Home</a>
-                <a href="/AllBook">Books</a>
+                <a href="/AllRental">Rentals</a>
+                <a href="/AllReservation">Events</a>
+                <a href="/AllVehicle">Vehicles</a>
+                <a href="/AllEmployee">Human Resource</a>
                 <a className="float-right" href="/">Logout</a>
 
             </div>
