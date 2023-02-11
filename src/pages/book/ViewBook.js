@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
-import { getAllRental,deleteRental } from "../../services/RentalService";
-
+import { getAllBook,deleteBook } from "../../services/BookService";
 import Header from "../../components/Header";
-import UpdateRental from "./modals/UpdateRentalModal";
+import UpdateBook from "./modals/UpdateBookModal";
 //import Header from "../Header";
 
 
-export default function RentalView() {
+export default function BookView() {
 
 
-const [rental, setRental] = useState([]);
-const [addRentalModal, setRentalModal] = useState(false);
-const [updateRentalModal, setUpdateRentalModal] = useState(false);
+const [book, setBook] = useState([]);
+const [addBookModal, setBookModal] = useState(false);
+const [updateBookModal, setUpdateBookModal] = useState(false);
 const [updateData, setUpdateData] = useState();
 
 
 
   //creting a method for retrieve data
 useEffect(() => {
-    getAllRental().then((res)=>{
+    getAllBook().then((res)=>{
         if(res.ok){
-            setRental(res.data);
+            setBook(res.data);
         }
         else{
-            setRental([]);
+            setBook([]);
         }
     })
 }, []);
@@ -33,11 +32,11 @@ useEffect(() => {
   //Delete method implementation
 function onDelete(data) {
     const id = data.id;
-    let text = "Are you sure want to delete the Rental?";
+    let text = "Are you sure want to delete the Book?";
         if (window.confirm(text) == true) {
-            deleteRental(id).then((res)=>{
+            deleteBook(id).then((res)=>{
                 if(res.ok){
-                    alert("Rental Deleted Successfully");
+                    alert("Book Deleted Successfully");
                     window.location.reload();
                 }else{
                     alert("Something Went Wrong");
@@ -58,28 +57,28 @@ function onDelete(data) {
 
         {/* implementing the meterial table for display data */}
 
-        <div className="AllRentalTable">
+        <div className="AllBookTable">
         <div style={{ textAlign: "right"}}>
         <button className="btn btn-success"
             style={{ marginTop:"50px", marginBottom: "10px" }}>
             <a
-            href="/AddRental"
+            href="/AddBook"
             style={{ textDecoration: "none", color: "white"}}
             >
             {" "}
-            Add a new Rental
+            Add a new Book
             </a>
         </button>
         </div>
         <MaterialTable style={{background:"#E3ECFF"}}
-        title="All Rental"
+        title="All Book"
         actions={[
             {
             icon: () => (
                 <button className="btn btn-sm btn-warning">Edit</button>
             ),
             onClick: (event, rowData) => {
-                setUpdateRentalModal(true);
+                setUpdateBookModal(true);
                 setUpdateData(rowData);
             },
             },
@@ -91,16 +90,14 @@ function onDelete(data) {
                 },
         ]}
         columns={[
-            { title: "Customer", field: "customerName", type: "string" },
-            { title: "NIC", field: "customerNIC", type: "string" },
-            { title: "Vehicle Type", field: "vehicleType", type: "string" },
-            { title: "From", field: "from", type: "string" },
-            { title: "To", field: "to", type: "string" },
-            { title: "Total Amount(LKR)", field: "paymentAmount", type: "string" },
+            { title: "Title", field: "title", type: "string" },
+            { title: "Author", field: "author", type: "string" },
+            { title: "Cost($)", field: "cost", type: "string" },
+           
 
 
         ]}
-        data={rental}
+        data={book}
         options={{
             sorting: true,
             actionsColumnIndex: -1,
@@ -110,12 +107,12 @@ function onDelete(data) {
         />
     </div>
     <div>
-    <Modal show={updateRentalModal} onHide={()=>{
-        setUpdateRentalModal(false) 
+    <Modal show={updateBookModal} onHide={()=>{
+        setUpdateBookModal(false) 
     }}
     >
-        <UpdateRental data = {updateData} onHide={()=>{
-        setUpdateRentalModal(false)}} />
+        <UpdateBook data = {updateData} onHide={()=>{
+        setUpdateBookModal(false)}} />
         
     </Modal> 
 
